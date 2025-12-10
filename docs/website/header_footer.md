@@ -1,53 +1,40 @@
-# Header, Navigation & Footer Design
+# Header & Footer
 
-Detailed specifications for site header, navigation system, and footer.
+Navigation and structural components.
 
 ---
 
 ## Header
 
-### Structure
+### Desktop Layout
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  [Logo/Title]              [Nav Links]         [EN|ES] [☀️]  │
-└─────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│  [LOGO]           [Nav]  [Nav]  [Nav]  [Nav]           [EN|ES]  [CTA]  [◐] │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Components
+Three zones with generous spacing:
 
-| Element | Description |
-|---------|-------------|
-| Logo/Title | Book title or site logo - links to homepage |
-| Nav Links | Primary navigation items |
-| Language Switcher | EN/ES toggle |
-| Theme Toggle | Light/dark mode (optional, may auto-detect only) |
+| Zone | Content | Alignment |
+|------|---------|-----------|
+| Left | Logo/Site title | Left |
+| Center | Navigation links | Center |
+| Right | Language, CTA, Theme toggle | Right |
 
-### Behavior
-
-- **Sticky:** Header remains fixed at top on scroll
-- **Compact on scroll:** Optionally reduces height after scrolling down
-- **Transparent hero option:** Can be transparent over hero, solid on scroll
-
-### Desktop Layout (>768px)
+### Mobile Layout
 
 ```
-[Logo]                    [Home] [Book] [Authors] [Resources] [Buy]    [EN|ES]
+┌──────────────────────────────────────┐
+│  [LOGO]              [EN|ES]    [☰]  │
+└──────────────────────────────────────┘
 ```
 
-- Horizontal navigation
-- All items visible
-- Language switcher at far right
-
-### Mobile Layout (<768px)
-
-```
-[Logo]                                                    [☰] [EN|ES]
-```
-
-- Hamburger menu replaces navigation
-- Language switcher remains visible
-- Menu opens as overlay
+- Hamburger triggers full-screen menu
+- Language switcher stays visible
+- Theme toggle moves to menu
 
 ---
 
@@ -55,55 +42,65 @@ Detailed specifications for site header, navigation system, and footer.
 
 ### English
 
-| Label | Route | Active On |
-|-------|-------|-----------|
-| Home | `/en/` | Exact match |
-| Book | `/en/book/` | Starts with |
-| Authors | `/en/authors/` | Starts with |
-| Resources | `/en/resources/` | Starts with |
-| Buy | `/en/buy/` | Starts with |
+| Label | Route |
+|-------|-------|
+| Book | `/en/book/` |
+| Authors | `/en/authors/` |
+| Resources | `/en/resources/` |
 
 ### Spanish
 
-| Label | Route | Active On |
-|-------|-------|-----------|
-| Inicio | `/es/` | Exact match |
-| Libro | `/es/libro/` | Starts with |
-| Autores | `/es/autores/` | Starts with |
-| Recursos | `/es/recursos/` | Starts with |
-| Comprar | `/es/comprar/` | Starts with |
+| Label | Route |
+|-------|-------|
+| Libro | `/es/libro/` |
+| Autores | `/es/autores/` |
+| Recursos | `/es/recursos/` |
 
-### Active State
+### CTA Button
 
-- Visual indicator for current page
-- Underline, background color, or font weight change
-- Must be visually distinct from hover state
+| Language | Label | Route |
+|----------|-------|-------|
+| EN | Buy | `/en/buy/` |
+| ES | Comprar | `/es/comprar/` |
+
+Styled as primary button (teal background).
 
 ---
 
 ## Language Switcher
 
-### Design
+### Display
 
-- Simple toggle: `EN | ES`
-- Current language highlighted
-- Click switches to equivalent page
-
-### Technical Behavior
-
-```typescript
-// Switcher determines current page and finds equivalent
-function getAlternateLanguageURL(currentPath: string, targetLang: 'en' | 'es'): string {
-  // Map current path to target language equivalent
-  // Fall back to homepage if no equivalent exists
-}
+```
+EN | ES
 ```
 
-### Accessibility
+- Current language: bold/highlighted
+- Separator: subtle divider
+- Click switches to equivalent page in other language
 
-- `aria-label="Switch language"`
-- Keyboard accessible
-- Clear visual feedback
+### Behavior
+
+- Maintains current page context when switching
+- Falls back to homepage if no equivalent exists
+- Updates `data-lang` attribute on `<html>`
+
+---
+
+## Theme Toggle
+
+### Icon States
+
+| Mode | Icon |
+|------|------|
+| Light | `◐` (half circle) or sun icon |
+| Dark | `◑` (half circle) or moon icon |
+
+### Behavior
+
+- Single click toggles between light/dark
+- Persists choice to `localStorage`
+- Respects system preference on first visit
 
 ---
 
@@ -111,170 +108,193 @@ function getAlternateLanguageURL(currentPath: string, targetLang: 'en' | 'es'): 
 
 ### Trigger
 
-- Hamburger icon (☰) or custom icon
-- Minimum 44x44px touch target
-- `aria-expanded` state managed
+- Hamburger icon (3 lines)
+- 44x44px touch target minimum
+- Transforms to X when open
 
 ### Menu Panel
 
+Full-screen overlay:
+
 ```
-┌─────────────────────────────────────────┐
-│                                    [✕]  │
-├─────────────────────────────────────────┤
-│                                         │
-│  Home                                   │
-│  ─────────────────────────────────      │
-│  Book                                   │
-│  ─────────────────────────────────      │
-│  Authors                                │
-│  ─────────────────────────────────      │
-│  Resources                              │
-│  ─────────────────────────────────      │
-│  Buy                                    │
-│                                         │
-└─────────────────────────────────────────┘
+┌──────────────────────────────────────┐
+│                                 [✕]  │
+│                                      │
+│                                      │
+│              Book                    │
+│                                      │
+│              Authors                 │
+│                                      │
+│              Resources               │
+│                                      │
+│              ─────────               │
+│                                      │
+│              [Buy CTA]               │
+│                                      │
+│                                      │
+│              [◐ Theme]               │
+│                                      │
+└──────────────────────────────────────┘
 ```
 
-### Behavior
-
-- Overlay or slide-in from right
+- Centered navigation items
+- Large touch targets
+- CTA prominent
+- Theme toggle at bottom
 - Background scroll locked
-- Focus trapped within menu
-- Close on: X button, outside click, Escape key, navigation
+
+### Close Triggers
+
+- X button
+- Escape key
+- Outside click
+- Any navigation
 
 ---
 
 ## Footer
 
-### Structure
+### Desktop Layout
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│  [Quick Links]        [Resources]         [Connect]         │
-│                                                             │
-│  Home                 Sample Chapter      LinkedIn          │
-│  Book                 AI Glossary         Twitter           │
-│  Authors              Use Cases           Email             │
-│  Buy                                                        │
-│                                                             │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  © 2024 [Book Title]. All rights reserved.                  │
-│  Privacy Policy                                             │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│     [Navigation]              [Resources]              [Connect]           │
+│                                                                            │
+│     Book                      [Resource 1]             LinkedIn            │
+│     Authors                   [Resource 2]             Twitter             │
+│     Resources                 [Resource 3]             Email               │
+│     Buy                                                                    │
+│                                                                            │
+├────────────────────────────────────────────────────────────────────────────┤
+│                                                                            │
+│     © 2024 [Book Title]                              Privacy Policy        │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Sections
+### Mobile Layout
 
-#### Quick Links
+Stacked single column:
 
-Primary navigation repeated:
-- Home
-- Book
-- Authors
-- Buy
+```
+┌──────────────────────────────────────┐
+│                                      │
+│  Navigation                          │
+│  Book · Authors · Resources · Buy    │
+│                                      │
+│  Resources                           │
+│  [Resource links]                    │
+│                                      │
+│  Connect                             │
+│  [Social links]                      │
+│                                      │
+│  ────────────────────────────────    │
+│                                      │
+│  © 2024 [Book Title]                 │
+│  Privacy Policy                      │
+│                                      │
+└──────────────────────────────────────┘
+```
 
-#### Resources
+### Footer Sections
 
-Direct links to downloads:
-- Sample Chapter (PDF)
-- AI Glossary (PDF)
-- Use Cases (PDF)
+**Navigation**
+- Repeat main nav links
+- Quick access from bottom of long pages
 
-#### Connect
+**Resources**
+- Direct links to downloadable content
+- PDF links open in new tab
 
-- Author social links (LinkedIn, Twitter/X)
+**Connect**
+- Author social profiles (LinkedIn, Twitter/X)
 - Contact email
-- Publisher links (optional)
+- Professional networks only
 
-#### Legal Bar
-
+**Legal Bar**
 - Copyright notice
 - Privacy policy link
-- Cookie preferences (if applicable)
-
-### Mobile Footer
-
-- Sections stack vertically
-- Full-width layout
-- Collapsible sections optional (accordion)
+- Year updates automatically
 
 ---
 
-## Visual Specifications
+## Specifications
 
-### Header Heights
+### Heights
 
-| State | Desktop | Mobile |
-|-------|---------|--------|
-| Default | 80px | 64px |
-| Scrolled | 64px | 56px |
+| Element | Desktop | Mobile |
+|---------|---------|--------|
+| Header | 80px | 64px |
+| Header (scrolled) | 64px | 56px |
 
 ### Z-Index
 
-| Element | Z-Index |
-|---------|---------|
+| Element | Value |
+|---------|-------|
 | Header | 100 |
 | Mobile menu | 200 |
 | Modals | 300 |
 
-### Colors (Reference design_ethos.md)
+### Transitions
 
-- Header background: White (light) / Dark slate (dark)
-- Footer background: Slightly darker than body
-- Text: High contrast for readability
+- Header shrink: 200ms ease
+- Menu open/close: 300ms ease
+- Theme toggle: instant (no flash)
 
 ---
 
-## Accessibility Checklist
+## Accessibility
 
 ### Header
 
-- [ ] Logo has alt text and links to homepage
-- [ ] Navigation uses `<nav>` element with `aria-label`
-- [ ] Current page indicated with `aria-current="page"`
-- [ ] Skip link provided for keyboard users
-- [ ] Mobile menu manages focus correctly
+- `<header role="banner">`
+- `<nav aria-label="Main">`
+- Skip link as first focusable element
+- `aria-current="page"` on active nav item
+- `aria-expanded` on mobile menu trigger
 
 ### Footer
 
-- [ ] Footer uses `<footer>` element
-- [ ] Link groups have headings or `aria-label`
-- [ ] External links marked appropriately
-- [ ] Social links have accessible names
-
----
-
-## Implementation Notes
+- `<footer role="contentinfo">`
+- Link groups have headings
+- External links marked with `aria-label`
+- Social icons have accessible names
 
 ### Skip Link
 
-First focusable element should be skip link:
-
 ```html
-<a href="#main-content" class="skip-link">
-  Skip to main content
+<a href="#main" class="skip-link">
+  Skip to content
 </a>
 ```
 
 Visually hidden until focused.
 
-### Semantic Structure
+---
+
+## Semantic Structure
 
 ```html
-<header role="banner">
-  <nav aria-label="Main navigation">
-    <!-- Primary nav -->
-  </nav>
-</header>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-<main id="main-content">
-  <!-- Page content -->
-</main>
+  <header role="banner">
+    <a href="/" class="logo">[Logo]</a>
+    <nav aria-label="Main">
+      <!-- Nav items -->
+    </nav>
+    <div class="header-actions">
+      <!-- Language, CTA, Theme -->
+    </div>
+  </header>
 
-<footer role="contentinfo">
-  <!-- Footer content -->
-</footer>
+  <main id="main">
+    <!-- Page content -->
+  </main>
+
+  <footer role="contentinfo">
+    <!-- Footer content -->
+  </footer>
+</body>
 ```
