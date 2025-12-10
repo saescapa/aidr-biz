@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE_TITLE_ES, ROUTES } from '../../consts';
+
+const lang = 'es';
+const pageTitle = `Política de Cookies | ${SITE_TITLE_ES}`;
+const pageDescription = 'Política de cookies del sitio web La IA en los Negocios.';
+const lastUpdated = '[Fecha Placeholder]';
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href={ROUTES.home.es}>Inicio</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Política de Cookies</span>
+    </div>
+  </nav>
+
+  <!-- Cookie Content -->
+  <article class="legal-content">
+    <div class="container-narrow">
+      <header class="legal-header">
+        <h1>Política de Cookies</h1>
+        <p class="last-updated">Última actualización: {lastUpdated}</p>
+      </header>
+
+      <section>
+        <h2>Qué Son las Cookies</h2>
+        <p>[Explicación de cookies placeholder - pequeños archivos de texto almacenados en tu dispositivo cuando visitas sitios web.]</p>
+      </section>
+
+      <section>
+        <h2>Cómo Usamos las Cookies</h2>
+        <p>[Descripción del uso de cookies placeholder - por qué usamos cookies en este sitio web.]</p>
+
+        <h3>Cookies Esenciales</h3>
+        <p>[Explicación de cookies esenciales placeholder - necesarias para la funcionalidad básica del sitio.]</p>
+
+        <h3>Cookies de Análisis</h3>
+        <p>[Explicación de cookies de análisis placeholder - nos ayudan a entender cómo los visitantes usan el sitio.]</p>
+
+        <h3>Cookies de Preferencias</h3>
+        <p>[Explicación de cookies de preferencias placeholder - recuerdan tu configuración como preferencia de idioma.]</p>
+      </section>
+
+      <section>
+        <h2>Cookies que Utilizamos</h2>
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Nombre de Cookie</th>
+              <th>Propósito</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[Nombre de cookie placeholder]</td>
+              <td>[Propósito placeholder]</td>
+              <td>[Duración placeholder]</td>
+            </tr>
+            <tr>
+              <td>[Nombre de cookie placeholder]</td>
+              <td>[Propósito placeholder]</td>
+              <td>[Duración placeholder]</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Cookies de Terceros</h2>
+        <p>[Explicación de cookies de terceros placeholder - cookies establecidas por servicios externos que utilizamos.]</p>
+        <ul>
+          <li>[Servicio de terceros 1 placeholder - ej., Google Analytics]</li>
+          <li>[Servicio de terceros 2 placeholder]</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Gestión de Cookies</h2>
+        <p>[Explicación de gestión de cookies placeholder - cómo controlar o eliminar cookies.]</p>
+        <p>[Información sobre configuración del navegador placeholder - enlaces a configuración de cookies de navegadores principales.]</p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener">Chrome</a></li>
+          <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener">Firefox</a></li>
+          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+          <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Edge</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cambios en Esta Política</h2>
+        <p>[Explicación de actualizaciones de política placeholder - cómo te notificaremos de cambios.]</p>
+      </section>
+
+      <section>
+        <h2>Contáctanos</h2>
+        <p>[Información de contacto para consultas sobre cookies placeholder.]</p>
+        <p>Email: [email@placeholder.com]</p>
+      </section>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent-primary);
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Legal Content */
+  .legal-content {
+    padding: 48px 0 96px;
+  }
+
+  .legal-header {
+    margin-bottom: 48px;
+  }
+
+  .legal-header h1 {
+    margin-bottom: 8px;
+  }
+
+  .last-updated {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .legal-content section {
+    margin-bottom: 48px;
+  }
+
+  .legal-content section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-primary);
+  }
+
+  .legal-content h3 {
+    font-size: 1.125rem;
+    margin: 24px 0 12px;
+  }
+
+  .legal-content p {
+    margin-bottom: 1em;
+  }
+
+  .legal-content ul {
+    margin: 0 0 1em 0;
+    padding-left: 24px;
+  }
+
+  .legal-content li {
+    margin-bottom: 8px;
+  }
+
+  .legal-content a {
+    color: var(--accent-primary);
+  }
+
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+
+  /* Cookie Table */
+  .cookie-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+  }
+
+  .cookie-table th,
+  .cookie-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--text-secondary);
+  }
+
+  .cookie-table th {
+    font-weight: 600;
+    background: var(--bg-secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .legal-content {
+      padding: 32px 0 64px;
+    }
+
+    .legal-content section {
+      margin-bottom: 32px;
+    }
+
+    .cookie-table {
+      font-size: 0.875rem;
+    }
+
+    .cookie-table th,
+    .cookie-table td {
+      padding: 8px;
+    }
+  }
+</style>

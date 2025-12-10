@@ -1,0 +1,181 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE_TITLE_ES, ROUTES } from '../../consts';
+
+const lang = 'es';
+const pageTitle = `Términos de Uso | ${SITE_TITLE_ES}`;
+const pageDescription = 'Términos de uso del sitio web La IA en los Negocios.';
+const lastUpdated = '[Fecha Placeholder]';
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href={ROUTES.home.es}>Inicio</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Términos de Uso</span>
+    </div>
+  </nav>
+
+  <!-- Terms Content -->
+  <article class="legal-content">
+    <div class="container-narrow">
+      <header class="legal-header">
+        <h1>Términos de Uso</h1>
+        <p class="last-updated">Última actualización: {lastUpdated}</p>
+      </header>
+
+      <section>
+        <h2>Aceptación de Términos</h2>
+        <p>[Aceptación de términos placeholder - al acceder a este sitio web, aceptas estos términos.]</p>
+      </section>
+
+      <section>
+        <h2>Uso del Sitio Web</h2>
+        <p>[Directrices de uso del sitio web placeholder - usos permitidos y prohibidos del sitio web.]</p>
+        <h3>Usos Permitidos</h3>
+        <ul>
+          <li>[Uso permitido 1 placeholder - ej., ver contenido para uso personal]</li>
+          <li>[Uso permitido 2 placeholder - ej., comprar el libro]</li>
+          <li>[Uso permitido 3 placeholder - ej., descargar recursos gratuitos]</li>
+        </ul>
+        <h3>Usos Prohibidos</h3>
+        <ul>
+          <li>[Uso prohibido 1 placeholder - ej., reproducir contenido sin permiso]</li>
+          <li>[Uso prohibido 2 placeholder - ej., usar el sitio para fines ilegales]</li>
+          <li>[Uso prohibido 3 placeholder - ej., intentar acceder a áreas restringidas]</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Propiedad Intelectual</h2>
+        <p>[Propiedad intelectual placeholder - todo el contenido de este sitio web está protegido por derechos de autor.]</p>
+        <p>[Titularidad de derechos placeholder - el contenido pertenece a los autores/editores.]</p>
+      </section>
+
+      <section>
+        <h2>Contenido del Libro</h2>
+        <p>[Términos del contenido del libro placeholder - términos específicos sobre el contenido del libro y extractos.]</p>
+        <p>[Uso de contenido de muestra placeholder - limitaciones en el uso de capítulos o extractos de muestra.]</p>
+      </section>
+
+      <section>
+        <h2>Enlaces Externos</h2>
+        <p>[Descargo de responsabilidad de enlaces externos placeholder - no somos responsables del contenido en sitios web enlazados.]</p>
+        <p>[Enlaces a Amazon/minoristas placeholder - las compras están sujetas a los términos del minorista.]</p>
+      </section>
+
+      <section>
+        <h2>Descargos de Responsabilidad</h2>
+        <p>[Descargo general placeholder - el sitio web se proporciona "tal cual" sin garantías.]</p>
+        <p>[Precisión del contenido placeholder - aunque nos esforzamos por la precisión, no garantizamos que toda la información esté actualizada.]</p>
+      </section>
+
+      <section>
+        <h2>Limitación de Responsabilidad</h2>
+        <p>[Limitación de responsabilidad placeholder - alcance de la responsabilidad por daños derivados del uso del sitio web.]</p>
+      </section>
+
+      <section>
+        <h2>Ley Aplicable</h2>
+        <p>[Ley aplicable placeholder - qué jurisdicción rige estos términos.]</p>
+      </section>
+
+      <section>
+        <h2>Cambios en los Términos</h2>
+        <p>[Modificación de términos placeholder - nos reservamos el derecho de modificar estos términos en cualquier momento.]</p>
+      </section>
+
+      <section>
+        <h2>Contáctanos</h2>
+        <p>[Información de contacto para consultas sobre términos placeholder.]</p>
+        <p>Email: [email@placeholder.com]</p>
+      </section>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent-primary);
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Legal Content */
+  .legal-content {
+    padding: 48px 0 96px;
+  }
+
+  .legal-header {
+    margin-bottom: 48px;
+  }
+
+  .legal-header h1 {
+    margin-bottom: 8px;
+  }
+
+  .last-updated {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .legal-content section {
+    margin-bottom: 48px;
+  }
+
+  .legal-content section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-primary);
+  }
+
+  .legal-content h3 {
+    font-size: 1.125rem;
+    margin: 24px 0 12px;
+  }
+
+  .legal-content p {
+    margin-bottom: 1em;
+  }
+
+  .legal-content ul {
+    margin: 0 0 1em 0;
+    padding-left: 24px;
+  }
+
+  .legal-content li {
+    margin-bottom: 8px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .legal-content {
+      padding: 32px 0 64px;
+    }
+
+    .legal-content section {
+      margin-bottom: 32px;
+    }
+  }
+</style>

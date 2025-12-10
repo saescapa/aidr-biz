@@ -1,33 +1,38 @@
 ---
 import type { Language } from '../consts';
+import { getAlternateRoute, ROUTES } from '../consts';
 
 interface Props {
   lang?: Language;
+  currentPath?: string;
 }
 
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', currentPath } = Astro.props;
+
+// Get current path from Astro.url if not provided
+const path = currentPath || Astro.url.pathname;
 
 const nav = {
   en: [
-    { label: 'Book', href: '/en/book/' },
-    { label: 'Authors', href: '/en/authors/' },
-    { label: 'Resources', href: '/en/resources/' },
+    { label: 'Book', href: ROUTES.book.en },
+    { label: 'Authors', href: ROUTES.authors.en },
+    { label: 'Resources', href: ROUTES.resources.en },
   ],
   es: [
-    { label: 'Libro', href: '/es/libro/' },
-    { label: 'Autores', href: '/es/autores/' },
-    { label: 'Recursos', href: '/es/recursos/' },
+    { label: 'Libro', href: ROUTES.book.es },
+    { label: 'Autores', href: ROUTES.authors.es },
+    { label: 'Recursos', href: ROUTES.resources.es },
   ],
 };
 
 const cta = {
-  en: { label: 'Buy', href: '/en/buy/' },
-  es: { label: 'Comprar', href: '/es/comprar/' },
+  en: { label: 'Buy', href: ROUTES.buy.en },
+  es: { label: 'Comprar', href: ROUTES.buy.es },
 };
 
-const homeHref = lang === 'es' ? '/es/' : '/en/';
-const alternateLang = lang === 'es' ? 'en' : 'es';
-const alternateHref = lang === 'es' ? '/en/' : '/es/';
+const homeHref = ROUTES.home[lang];
+const alternateLang: Language = lang === 'es' ? 'en' : 'es';
+const alternateHref = getAlternateRoute(path, alternateLang);
 ---
 
 <header>
@@ -59,7 +64,8 @@ const alternateHref = lang === 'es' ? '/en/' : '/es/';
     top: 0;
     z-index: 100;
     background: var(--bg-primary, #A8D5E5);
-    border-bottom: 1px solid var(--text-secondary, #3D5A73);
+    border-bottom: 1px solid color-mix(in srgb, var(--text-secondary) 30%, transparent);
+    backdrop-filter: blur(8px);
   }
 
   .header-inner {
@@ -73,10 +79,16 @@ const alternateHref = lang === 'es' ? '/en/' : '/es/';
   }
 
   .logo {
+    font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.125rem;
     color: var(--text-primary, #1A2E44);
     text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .logo:hover {
+    color: var(--accent-primary);
   }
 
   nav {
@@ -85,13 +97,32 @@ const alternateHref = lang === 'es' ? '/en/' : '/es/';
   }
 
   nav a {
+    position: relative;
     color: var(--text-primary, #1A2E44);
     text-decoration: none;
+    font-family: var(--font-heading);
     font-weight: 500;
+    padding: 4px 0;
+    transition: color var(--transition-fast);
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: width var(--transition-base);
   }
 
   nav a:hover {
     color: var(--accent-primary, #3AAFAF);
+  }
+
+  nav a:hover::after {
+    width: 100%;
   }
 
   .header-actions {
@@ -105,11 +136,22 @@ const alternateHref = lang === 'es' ? '/en/' : '/es/';
     align-items: center;
     gap: 8px;
     font-size: 0.875rem;
+    font-family: var(--font-heading);
   }
 
   .lang-switcher a {
     color: var(--text-secondary, #3D5A73);
     text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .lang-switcher a:hover {
+    color: var(--accent-primary);
+    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
   }
 
   .lang-switcher a.active {
@@ -119,6 +161,7 @@ const alternateHref = lang === 'es' ? '/en/' : '/es/';
 
   .lang-switcher .divider {
     color: var(--text-secondary, #3D5A73);
+    opacity: 0.5;
   }
 
   .cta-button {
@@ -127,11 +170,22 @@ const alternateHref = lang === 'es' ? '/en/' : '/es/';
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
+    font-family: var(--font-heading);
     font-weight: 600;
+    transition:
+      background-color var(--transition-base),
+      transform var(--transition-fast),
+      box-shadow var(--transition-base);
   }
 
   .cta-button:hover {
-    opacity: 0.9;
+    background-color: var(--accent-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(58, 175, 175, 0.3);
+  }
+
+  .cta-button:active {
+    transform: translateY(0);
   }
 
   /* Mobile styles - TODO: implement hamburger menu */

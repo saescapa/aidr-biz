@@ -1,6 +1,6 @@
 ---
 import type { Language } from '../consts';
-import { AUTHORS } from '../consts';
+import { AUTHORS, ROUTES } from '../consts';
 
 interface Props {
   lang?: Language;
@@ -10,22 +10,30 @@ const { lang = 'en' } = Astro.props;
 
 const nav = {
   en: [
-    { label: 'Book', href: '/en/book/' },
-    { label: 'Authors', href: '/en/authors/' },
-    { label: 'Resources', href: '/en/resources/' },
-    { label: 'Buy', href: '/en/buy/' },
+    { label: 'Book', href: ROUTES.book.en },
+    { label: 'Authors', href: ROUTES.authors.en },
+    { label: 'Resources', href: ROUTES.resources.en },
+    { label: 'Buy', href: ROUTES.buy.en },
   ],
   es: [
-    { label: 'Libro', href: '/es/libro/' },
-    { label: 'Autores', href: '/es/autores/' },
-    { label: 'Recursos', href: '/es/recursos/' },
-    { label: 'Comprar', href: '/es/comprar/' },
+    { label: 'Libro', href: ROUTES.book.es },
+    { label: 'Autores', href: ROUTES.authors.es },
+    { label: 'Recursos', href: ROUTES.resources.es },
+    { label: 'Comprar', href: ROUTES.buy.es },
   ],
 };
 
-const privacyLink = {
-  en: { label: 'Privacy Policy', href: '/en/privacy/' },
-  es: { label: 'Política de Privacidad', href: '/es/privacidad/' },
+const legalLinks = {
+  en: [
+    { label: 'Privacy Policy', href: ROUTES.privacy.en },
+    { label: 'Cookie Policy', href: ROUTES.cookies.en },
+    { label: 'Terms of Use', href: ROUTES.terms.en },
+  ],
+  es: [
+    { label: 'Política de Privacidad', href: ROUTES.privacy.es },
+    { label: 'Política de Cookies', href: ROUTES.cookies.es },
+    { label: 'Términos de Uso', href: ROUTES.terms.es },
+  ],
 };
 
 const currentYear = new Date().getFullYear();
@@ -55,7 +63,14 @@ const bookTitle = lang === 'es' ? 'La IA en los Negocios' : 'The AI-driven Busin
 
     <div class="footer-bar">
       <p>&copy; {currentYear} {bookTitle}. {AUTHORS.join(' & ')}.</p>
-      <a href={privacyLink[lang].href}>{privacyLink[lang].label}</a>
+      <nav class="legal-links" aria-label="Legal">
+        {legalLinks[lang].map((link, index) => (
+          <>
+            <a href={link.href}>{link.label}</a>
+            {index < legalLinks[lang].length - 1 && <span class="separator">|</span>}
+          </>
+        ))}
+      </nav>
     </div>
   </div>
 </footer>
@@ -79,11 +94,12 @@ const bookTitle = lang === 'es' ? 'La IA en los Negocios' : 'The AI-driven Busin
   }
 
   .footer-section h3 {
+    font-family: var(--font-heading);
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary, #3D5A73);
+    letter-spacing: 0.1em;
+    color: var(--accent-primary);
     margin-bottom: 16px;
   }
 
@@ -98,12 +114,29 @@ const bookTitle = lang === 'es' ? 'La IA en los Negocios' : 'The AI-driven Busin
   }
 
   .footer-section a {
+    position: relative;
     color: var(--text-primary, #1A2E44);
     text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-section a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-primary);
+    transition: width var(--transition-base);
   }
 
   .footer-section a:hover {
     color: var(--accent-primary, #3AAFAF);
+  }
+
+  .footer-section a:hover::after {
+    width: 100%;
   }
 
   .footer-bar {
@@ -111,7 +144,7 @@ const bookTitle = lang === 'es' ? 'La IA en los Negocios' : 'The AI-driven Busin
     justify-content: space-between;
     align-items: center;
     padding-top: 24px;
-    border-top: 1px solid var(--text-secondary, #3D5A73);
+    border-top: 1px solid color-mix(in srgb, var(--text-secondary) 30%, transparent);
     font-size: 0.875rem;
     color: var(--text-secondary, #3D5A73);
   }
@@ -119,10 +152,21 @@ const bookTitle = lang === 'es' ? 'La IA en los Negocios' : 'The AI-driven Busin
   .footer-bar a {
     color: var(--text-secondary, #3D5A73);
     text-decoration: none;
+    transition: color var(--transition-fast);
   }
 
   .footer-bar a:hover {
     color: var(--accent-primary, #3AAFAF);
+  }
+
+  .legal-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .legal-links .separator {
+    opacity: 0.5;
   }
 
   @media (max-width: 768px) {
@@ -135,6 +179,11 @@ const bookTitle = lang === 'es' ? 'La IA en los Negocios' : 'The AI-driven Busin
       flex-direction: column;
       gap: 16px;
       text-align: center;
+    }
+
+    .legal-links {
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 </style>

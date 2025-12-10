@@ -1,0 +1,227 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE_TITLE_ES, ROUTES } from '../../consts';
+
+const lang = 'es';
+const pageTitle = `Recursos | ${SITE_TITLE_ES}`;
+const pageDescription = 'Recursos gratuitos, contenido descargable y capitulos de muestra de La IA en los Negocios.';
+
+const resources = [
+  {
+    title: '[Capitulo de Muestra]',
+    description: '[Descarga un capitulo de muestra gratuito para conocer el estilo y contenido del libro. Obtén un adelanto de conocimientos practicos sobre IA.]',
+    type: 'PDF',
+    downloadURL: '#',
+  },
+  {
+    title: '[Glosario de IA]',
+    description: '[Un glosario completo de terminos de IA que todo lider empresarial deberia conocer. Manten esta referencia a mano.]',
+    type: 'PDF',
+    downloadURL: '#',
+  },
+  {
+    title: '[Guia de Casos de Uso]',
+    description: '[Ejemplos reales de implementacion de IA en diversas industrias. Ve como las empresas lideres estan usando la IA hoy.]',
+    type: 'PDF',
+    downloadURL: '#',
+  },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href={ROUTES.home.es}>Inicio</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Recursos</span>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Recursos</h1>
+      <p class="page-intro">[Parrafo de introduccion placeholder - explica el valor de estos recursos gratuitos y como complementan el libro.]</p>
+    </div>
+  </section>
+
+  <!-- Resources Grid -->
+  <section class="resources-section">
+    <div class="container">
+      <div class="resources-grid">
+        {resources.map((resource) => (
+          <article class="resource-card">
+            <div class="resource-icon">
+              <span>{resource.type}</span>
+            </div>
+            <h2>{resource.title}</h2>
+            <p>{resource.description}</p>
+            <a href={resource.downloadURL} class="btn btn-primary" download>
+              Descargar {resource.type}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="resources-cta">
+    <div class="container text-center">
+      <h2>Quieres la Guia Completa?</h2>
+      <p>Estos recursos son solo una muestra. Obtén el libro completo para estrategias integrales de IA en los negocios.</p>
+      <a href={ROUTES.book.es} class="btn btn-primary">
+        Conocer Mas Sobre el Libro
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent-primary);
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Page Header */
+  .page-header {
+    padding: 48px 0 64px;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    margin-bottom: 24px;
+  }
+
+  .page-intro {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+  }
+
+  /* Resources Section */
+  .resources-section {
+    padding: 0 0 96px;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .resource-card {
+    background: var(--bg-secondary);
+    padding: 32px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .resource-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--accent-primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--text-inverse);
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+
+  .resource-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .resource-card p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .resource-card .btn {
+    align-self: flex-start;
+  }
+
+  /* CTA */
+  .resources-cta {
+    padding: 96px 24px;
+    background: var(--bg-secondary);
+  }
+
+  .resources-cta h2 {
+    margin-bottom: 16px;
+  }
+
+  .resources-cta p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .resources-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .resources-section {
+      padding-bottom: 64px;
+    }
+
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .resources-cta {
+      padding: 64px 24px;
+    }
+  }
+</style>

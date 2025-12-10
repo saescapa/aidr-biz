@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE_TITLE_ES, ROUTES } from '../../consts';
+
+const lang = 'es';
+const pageTitle = `Politica de Privacidad | ${SITE_TITLE_ES}`;
+const pageDescription = 'Politica de privacidad del sitio web La IA en los Negocios.';
+const lastUpdated = '[Fecha Placeholder]';
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href={ROUTES.home.es}>Inicio</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Politica de Privacidad</span>
+    </div>
+  </nav>
+
+  <!-- Privacy Content -->
+  <article class="privacy-content">
+    <div class="container-narrow">
+      <header class="privacy-header">
+        <h1>Politica de Privacidad</h1>
+        <p class="last-updated">Ultima actualizacion: {lastUpdated}</p>
+      </header>
+
+      <section>
+        <h2>Introduccion</h2>
+        <p>[Parrafo de introduccion placeholder - vision general del compromiso con la privacidad y lo que cubre esta politica.]</p>
+      </section>
+
+      <section>
+        <h2>Informacion que Recopilamos</h2>
+        <p>[Explicacion de que informacion se recopila placeholder - ej., datos de analitica, envios de formularios, etc.]</p>
+        <h3>Informacion Recopilada Automaticamente</h3>
+        <p>[Detalles sobre datos recopilados automaticamente placeholder - ej., direcciones IP, tipo de navegador, paginas visitadas.]</p>
+        <h3>Informacion que Usted Proporciona</h3>
+        <p>[Detalles sobre informacion proporcionada voluntariamente placeholder - ej., formularios de contacto, suscripciones al boletin.]</p>
+      </section>
+
+      <section>
+        <h2>Como Usamos Su Informacion</h2>
+        <p>[Explicacion de como se usa la informacion recopilada placeholder:]</p>
+        <ul>
+          <li>[Proposito de uso 1 placeholder - ej., mejorar la experiencia del sitio web]</li>
+          <li>[Proposito de uso 2 placeholder - ej., responder a consultas]</li>
+          <li>[Proposito de uso 3 placeholder - ej., enviar boletines si esta suscrito]</li>
+          <li>[Proposito de uso 4 placeholder - ej., analizar el trafico del sitio]</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cookies y Seguimiento</h2>
+        <p>[Explicacion de las cookies y tecnologias de seguimiento utilizadas placeholder.]</p>
+        <p>[Informacion sobre como los usuarios pueden gestionar las preferencias de cookies placeholder.]</p>
+      </section>
+
+      <section>
+        <h2>Servicios de Terceros</h2>
+        <p>[Lista de servicios de terceros utilizados placeholder - ej., proveedores de analitica, servicios de hosting.]</p>
+        <p>[Enlaces a sus respectivas politicas de privacidad placeholder.]</p>
+      </section>
+
+      <section>
+        <h2>Seguridad de Datos</h2>
+        <p>[Explicacion de las medidas de seguridad implementadas para proteger los datos del usuario placeholder.]</p>
+      </section>
+
+      <section>
+        <h2>Sus Derechos</h2>
+        <p>[Informacion sobre los derechos del usuario placeholder - ej., acceso, correccion, eliminacion de datos.]</p>
+        <p>[Como los usuarios pueden ejercer estos derechos placeholder.]</p>
+      </section>
+
+      <section>
+        <h2>Privacidad de Menores</h2>
+        <p>[Declaracion sobre no recopilar informacion de menores placeholder.]</p>
+      </section>
+
+      <section>
+        <h2>Cambios a Esta Politica</h2>
+        <p>[Explicacion de como se comunicaran los cambios a la politica placeholder.]</p>
+      </section>
+
+      <section>
+        <h2>Contactenos</h2>
+        <p>[Informacion de contacto para consultas relacionadas con la privacidad placeholder.]</p>
+        <p>Email: [email@placeholder.com]</p>
+      </section>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent-primary);
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Privacy Content */
+  .privacy-content {
+    padding: 48px 0 96px;
+  }
+
+  .privacy-header {
+    margin-bottom: 48px;
+  }
+
+  .privacy-header h1 {
+    margin-bottom: 8px;
+  }
+
+  .last-updated {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .privacy-content section {
+    margin-bottom: 48px;
+  }
+
+  .privacy-content section:last-child {
+    margin-bottom: 0;
+  }
+
+  .privacy-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-primary);
+  }
+
+  .privacy-content h3 {
+    font-size: 1.125rem;
+    margin: 24px 0 12px;
+  }
+
+  .privacy-content p {
+    margin-bottom: 1em;
+  }
+
+  .privacy-content ul {
+    margin: 0 0 1em 0;
+    padding-left: 24px;
+  }
+
+  .privacy-content li {
+    margin-bottom: 8px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .privacy-content {
+      padding: 32px 0 64px;
+    }
+
+    .privacy-content section {
+      margin-bottom: 32px;
+    }
+  }
+</style>

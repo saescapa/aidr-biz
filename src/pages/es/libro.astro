@@ -1,0 +1,416 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE_TITLE_ES, PURCHASE_LINKS, ROUTES } from '../../consts';
+
+const lang = 'es';
+const pageTitle = `El Libro | ${SITE_TITLE_ES}`;
+const pageDescription = 'Descubre como la IA esta transformando los negocios. Detalles completos, indice y lo que aprenderas.';
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href={ROUTES.home.es}>Inicio</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Libro</span>
+    </div>
+  </nav>
+
+  <!-- Book Header -->
+  <section class="book-header">
+    <div class="container">
+      <div class="book-header-content">
+        <div class="book-cover">
+          <div class="book-cover-placeholder">
+            <span>Portada del Libro</span>
+            <span class="placeholder-note">Edicion en Espanol</span>
+          </div>
+        </div>
+        <div class="book-info">
+          <h1>{SITE_TITLE_ES}</h1>
+          <p class="subtitle">[Subtitulo del libro placeholder - el titular secundario convincente]</p>
+          <p class="authors">Por Jorge Calvo y Carlos Escapa</p>
+          <a href={PURCHASE_LINKS.es} class="btn btn-primary" target="_blank" rel="noopener">
+            Comprar en Libros de Cabecera
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Description -->
+  <section class="book-description">
+    <div class="container-narrow">
+      <h2>Sobre el Libro</h2>
+      <p>[Parrafo inicial placeholder - engancha al lector con el problema central que este libro resuelve. Que mantiene despiertos a los lideres empresariales cuando se trata de IA?]</p>
+      <p>[Segundo parrafo placeholder - presenta la solucion. Como proporciona este libro claridad y orientacion practica? Que lo hace diferente de otros libros sobre IA?]</p>
+      <p>[Tercer parrafo placeholder - la promesa. Que podran hacer los lectores despues de leer este libro? Que transformacion pueden esperar?]</p>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <section class="toc-section">
+    <div class="container-narrow">
+      <h2>Contenido</h2>
+      <ol class="toc-list">
+        <li>
+          <span class="chapter-number">Capitulo 1</span>
+          <span class="chapter-title">[Titulo del Capitulo Placeholder]</span>
+        </li>
+        <li>
+          <span class="chapter-number">Capitulo 2</span>
+          <span class="chapter-title">[Titulo del Capitulo Placeholder]</span>
+        </li>
+        <li>
+          <span class="chapter-number">Capitulo 3</span>
+          <span class="chapter-title">[Titulo del Capitulo Placeholder]</span>
+        </li>
+        <li>
+          <span class="chapter-number">Capitulo 4</span>
+          <span class="chapter-title">[Titulo del Capitulo Placeholder]</span>
+        </li>
+        <li>
+          <span class="chapter-number">Capitulo 5</span>
+          <span class="chapter-title">[Titulo del Capitulo Placeholder]</span>
+        </li>
+        <li>
+          <span class="chapter-number">Capitulo 6</span>
+          <span class="chapter-title">[Titulo del Capitulo Placeholder]</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Target Audience -->
+  <section class="audience-section">
+    <div class="container-narrow">
+      <h2>Para Quien Es Este Libro</h2>
+      <ul class="audience-list">
+        <li>[Publico objetivo 1 - ej., Ejecutivos que buscan entender la estrategia de IA]</li>
+        <li>[Publico objetivo 2 - ej., Gerentes que buscan implementar IA en sus equipos]</li>
+        <li>[Publico objetivo 3 - ej., Emprendedores que quieren aprovechar la IA para crecer]</li>
+        <li>[Publico objetivo 4 - ej., Estudiantes y academicos que estudian innovacion empresarial]</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Specifications -->
+  <section class="specs-section">
+    <div class="container-narrow">
+      <h2>Detalles del Libro</h2>
+      <dl class="specs-list">
+        <div class="spec-item">
+          <dt>Formato</dt>
+          <dd>[Digital, Tapa blanda, etc.]</dd>
+        </div>
+        <div class="spec-item">
+          <dt>Paginas</dt>
+          <dd>[Numero de paginas]</dd>
+        </div>
+        <div class="spec-item">
+          <dt>ISBN</dt>
+          <dd>[Numero ISBN]</dd>
+        </div>
+        <div class="spec-item">
+          <dt>Editorial</dt>
+          <dd>Libros de Cabecera</dd>
+        </div>
+        <div class="spec-item">
+          <dt>Publicado</dt>
+          <dd>[Fecha de publicacion]</dd>
+        </div>
+        <div class="spec-item">
+          <dt>Idioma</dt>
+          <dd>Espanol</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Purchase CTA -->
+  <section class="purchase-cta">
+    <div class="container text-center">
+      <h2>Listo para Transformar Tu Negocio?</h2>
+      <p>Disponible ahora en ediciones en ingles y espanol.</p>
+      <div class="purchase-buttons">
+        <a href={PURCHASE_LINKS.es} class="btn btn-primary" target="_blank" rel="noopener">
+          Comprar Edicion Espanola
+        </a>
+        <a href={PURCHASE_LINKS.en} class="btn btn-secondary" target="_blank" rel="noopener">
+          Comprar Edicion Inglesa
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent-primary);
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Book Header */
+  .book-header {
+    padding: 48px 0 96px;
+  }
+
+  .book-header-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .book-cover-placeholder {
+    width: 280px;
+    height: 420px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .placeholder-note {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  .book-info h1 {
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .authors {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  /* Sections */
+  .book-description,
+  .toc-section,
+  .audience-section,
+  .specs-section {
+    padding: 64px 0;
+  }
+
+  .book-description {
+    background: var(--bg-secondary);
+  }
+
+  .toc-section {
+    background: var(--bg-primary);
+  }
+
+  .audience-section {
+    background: var(--bg-secondary);
+  }
+
+  .specs-section {
+    background: var(--bg-primary);
+  }
+
+  .book-description h2,
+  .toc-section h2,
+  .audience-section h2,
+  .specs-section h2 {
+    margin-bottom: 32px;
+  }
+
+  .book-description p {
+    margin-bottom: 1.5em;
+  }
+
+  /* TOC List */
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--text-secondary);
+  }
+
+  .toc-list li:last-child {
+    border-bottom: none;
+  }
+
+  .chapter-number {
+    font-weight: 600;
+    color: var(--accent-primary);
+    min-width: 100px;
+  }
+
+  .chapter-title {
+    color: var(--text-primary);
+  }
+
+  /* Audience List */
+  .audience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .audience-list li {
+    padding: 12px 0 12px 32px;
+    position: relative;
+  }
+
+  .audience-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+  }
+
+  /* Specs List */
+  .specs-list {
+    display: grid;
+    gap: 16px;
+  }
+
+  .spec-item {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--bg-secondary);
+  }
+
+  .spec-item dt {
+    font-weight: 600;
+    min-width: 120px;
+    color: var(--text-secondary);
+  }
+
+  .spec-item dd {
+    margin: 0;
+  }
+
+  /* Purchase CTA */
+  .purchase-cta {
+    padding: 96px 24px;
+    background: var(--bg-secondary);
+  }
+
+  .purchase-cta h2 {
+    margin-bottom: 16px;
+  }
+
+  .purchase-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .purchase-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid var(--accent-primary);
+    color: var(--accent-primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .book-header-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .book-cover {
+      display: flex;
+      justify-content: center;
+    }
+
+    .book-cover-placeholder {
+      width: 220px;
+      height: 330px;
+    }
+
+    .book-description,
+    .toc-section,
+    .audience-section,
+    .specs-section {
+      padding: 48px 0;
+    }
+
+    .chapter-number {
+      min-width: 80px;
+    }
+
+    .spec-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+</style>
