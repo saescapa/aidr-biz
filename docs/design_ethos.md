@@ -72,30 +72,30 @@ Dark mode inverts the hierarchy while preserving brand identity.
 
 ## Typography
 
+### Font Families
+
+**Headings: Space Grotesk** (Google Fonts)
+- Geometric sans-serif with tech-forward personality
+- Strong presence at large sizes
+- Weights: 500, 600, 700
+
+**Body: Inter** (Google Fonts)
+- Highly readable, designed for screens
+- Excellent support for Spanish characters (á, é, í, ó, ú, ñ, ü)
+- Weights: 400, 500, 600
+
 ### Type Scale
 
 Bold, confident headlines. Readable body text.
 
-| Element | Desktop | Mobile | Weight |
-|---------|---------|--------|--------|
-| Display | 72px | 48px | 700 |
-| H1 | 56px | 36px | 700 |
-| H2 | 40px | 28px | 600 |
-| H3 | 28px | 22px | 600 |
-| Body | 18px | 16px | 400 |
-| Small | 14px | 14px | 400 |
-
-### Font Characteristics
-
-**Headings**
-- Sans-serif, geometric preferred
-- Strong presence at large sizes
-- Clear letterforms
-
-**Body**
-- Highly readable sans-serif
-- Good support for Spanish characters (á, é, í, ó, ú, ñ, ü)
-- Comfortable for extended reading
+| Element | Desktop | Mobile | Weight | Font |
+|---------|---------|--------|--------|------|
+| Display | 72px | 48px | 700 | Space Grotesk |
+| H1 | 56px | 36px | 700 | Space Grotesk |
+| H2 | 40px | 28px | 600 | Space Grotesk |
+| H3 | 28px | 22px | 600 | Space Grotesk |
+| Body | 18px | 16px | 400 | Inter |
+| Small | 14px | 14px | 400 | Inter |
 
 ### Line Heights
 
@@ -245,11 +245,31 @@ All text meets WCAG 2.1 AA:
 - Keyboard navigation supported
 - Skip links provided
 
-### Motion
+### Motion & Animations
 
-- Respect `prefers-reduced-motion`
+**Timing Tokens**
+| Token | Duration | Use Case |
+|-------|----------|----------|
+| `--transition-fast` | 150ms | Color changes, opacity |
+| `--transition-base` | 200ms | Most interactions |
+| `--transition-slow` | 300ms | Complex transforms |
+| `--transition-smooth` | 300ms cubic-bezier | Page transitions |
+
+**Hover Effects**
+- Links: Animated underline grows from left
+- Buttons: Lift effect (-2px) + shadow
+- Cards: Subtle lift + shadow expansion
+
+**Page Transitions**
+- Astro View Transitions enabled
+- Crossfade between pages (300ms)
+- Header/Footer persist during navigation
+- Respects `prefers-reduced-motion`
+
+**Guidelines**
 - No auto-playing animations
-- Transitions under 300ms
+- All transitions under 300ms
+- Use easing for natural feel
 
 ---
 
@@ -257,11 +277,12 @@ All text meets WCAG 2.1 AA:
 
 Design decisions that support performance:
 
-- System fonts as fallback
+- Google Fonts with `display=swap` for fast initial render
+- System fonts as fallback during font loading
+- Font preconnect for faster loading
 - SVG for icons and geometric elements
 - Lazy load below-fold images
-- No decorative web fonts if possible
-- Target: 100 Lighthouse performance
+- Target: 95+ Lighthouse performance
 
 ---
 
@@ -270,21 +291,36 @@ Design decisions that support performance:
 ### CSS Custom Properties
 
 ```css
+:root {
+  /* Typography */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Animation timing */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 :root[data-lang="en"] {
   --bg-primary: #A8D5E5;
   --bg-secondary: #F5EDE0;
+  --accent-primary-hover: #2E9494;
   /* ... */
 }
 
 :root[data-lang="es"] {
   --bg-primary: #F5EDE0;
   --bg-secondary: #A8D5E5;
+  --accent-primary-hover: #2E9494;
   /* ... */
 }
 
 :root[data-theme="dark"] {
   --bg-primary: #0F1419;
   --bg-secondary: #1A2E44;
+  --accent-primary-hover: #5FE0D7;
   /* ... */
 }
 ```
