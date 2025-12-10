@@ -1,0 +1,284 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE_TITLE_ES, PURCHASE_LINKS, ROUTES } from '../../consts';
+
+const lang = 'es';
+const pageTitle = `Dónde Comprar | ${SITE_TITLE_ES}`;
+const pageDescription = 'Compra el libro La IA en los Negocios. Disponible en ediciones en español e inglés.';
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href={ROUTES.home.es}>Inicio</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Comprar</span>
+    </div>
+  </nav>
+
+  <!-- Buy Header -->
+  <section class="buy-header">
+    <div class="container text-center">
+      <h1>Consigue tu Copia</h1>
+      <p class="subtitle">Disponible en ediciones en español e inglés</p>
+    </div>
+  </section>
+
+  <!-- Edition Cards -->
+  <section class="editions-section">
+    <div class="container">
+      <div class="editions-grid">
+        <!-- Spanish Edition -->
+        <article class="edition-card">
+          <div class="book-cover-placeholder">
+            <span>Portada</span>
+            <span class="placeholder-note">Edición Española</span>
+          </div>
+          <div class="edition-info">
+            <h2>Edición Española</h2>
+            <p class="edition-title">{SITE_TITLE_ES}</p>
+            <div class="availability">
+              <h3>Disponible en:</h3>
+              <ul>
+                <li>Libros de Cabecera</li>
+              </ul>
+            </div>
+            <a
+              href={PURCHASE_LINKS.es}
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Comprar Ahora
+              <span class="external-icon" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- English Edition -->
+        <article class="edition-card">
+          <div class="book-cover-placeholder">
+            <span>Book Cover</span>
+            <span class="placeholder-note">English Edition</span>
+          </div>
+          <div class="edition-info">
+            <h2>English Edition</h2>
+            <p class="edition-title">The AI-driven Business</p>
+            <div class="availability">
+              <h3>Available on:</h3>
+              <ul>
+                <li>Amazon (Kindle)</li>
+                <li>Amazon (Paperback)</li>
+              </ul>
+            </div>
+            <a
+              href={PURCHASE_LINKS.en}
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Buy on Amazon
+              <span class="external-icon" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Info -->
+  <section class="info-section">
+    <div class="container-narrow text-center">
+      <h2>¿Necesitas Ayuda?</h2>
+      <p>
+        [Información de contacto placeholder - cómo contactar a los autores para pedidos al por mayor, conferencias, o preguntas sobre el libro.]
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent-primary);
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Buy Header */
+  .buy-header {
+    padding: 48px 0 64px;
+  }
+
+  .buy-header h1 {
+    margin-bottom: 16px;
+  }
+
+  .buy-header .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+  }
+
+  /* Editions Section */
+  .editions-section {
+    padding: 0 0 96px;
+  }
+
+  .editions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .edition-card {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-cover-placeholder {
+    width: 180px;
+    height: 270px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 24px;
+  }
+
+  .placeholder-note {
+    font-size: 0.75rem;
+    font-weight: 400;
+  }
+
+  .edition-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .edition-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .edition-title {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .availability {
+    margin-bottom: 24px;
+  }
+
+  .availability h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .availability ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .availability li {
+    padding: 4px 0;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin-top: auto;
+  }
+
+  .btn-primary {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .external-icon {
+    transition: transform 0.2s;
+  }
+
+  .btn:hover .external-icon {
+    transform: translateX(4px);
+  }
+
+  /* Info Section */
+  .info-section {
+    padding: 64px 0 96px;
+    background: var(--bg-secondary);
+  }
+
+  .info-section h2 {
+    margin-bottom: 16px;
+  }
+
+  .info-section p {
+    color: var(--text-secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .editions-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .edition-card {
+      padding: 24px;
+    }
+
+    .book-cover-placeholder {
+      width: 150px;
+      height: 225px;
+    }
+
+    .info-section {
+      padding: 48px 0 64px;
+    }
+  }
+</style>

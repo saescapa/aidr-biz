@@ -6,15 +6,83 @@ Track recent changes and current project state here. Update this file at the end
 
 ## Current State
 
-**Last Updated:** 2024-12-10
+**Last Updated:** 2025-12-10
 
-**Status:** Design documentation complete, ready for implementation
+**Status:** Core pages implemented with placeholder content
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-10 - Core Page Implementation
+
+**Work Completed:**
+- Created 10 bilingual pages with placeholder content:
+  - `/en/` and `/es/` - Homepage with hero, value props, authors preview, CTA
+  - `/en/book/` and `/es/libro/` - Book details, TOC, audience, specs
+  - `/en/authors/` and `/es/autores/` - Author profiles with bio placeholders
+  - `/en/resources/` and `/es/recursos/` - Downloadable resources grid
+  - `/en/privacy/` and `/es/privacidad/` - Privacy policy structure
+- Added route mapping system to `consts.ts` with `ROUTES` object and `getAlternateRoute()` function
+- Updated Header component with proper language switching that preserves page context
+- Updated Footer component to use centralized ROUTES
+
+**Files Created:**
+- `src/pages/en/index.astro`
+- `src/pages/es/index.astro`
+- `src/pages/en/book.astro`
+- `src/pages/es/libro.astro`
+- `src/pages/en/authors.astro`
+- `src/pages/es/autores.astro`
+- `src/pages/en/resources.astro`
+- `src/pages/es/recursos.astro`
+- `src/pages/en/privacy.astro`
+- `src/pages/es/privacidad.astro`
+
+**Files Modified:**
+- `src/consts.ts` - Added ROUTES, RouteKey type, getAlternateRoute()
+- `src/components/Header.astro` - Language switcher preserves current page
+- `src/components/Footer.astro` - Uses centralized ROUTES
+
+**Current Source Structure:**
+```
+src/
+├── components/
+│   ├── BaseHead.astro
+│   ├── Header.astro
+│   └── Footer.astro
+├── layouts/
+│   └── Layout.astro
+├── pages/
+│   ├── index.astro (redirects to /en/)
+│   ├── en/
+│   │   ├── index.astro
+│   │   ├── book.astro
+│   │   ├── authors.astro
+│   │   ├── resources.astro
+│   │   └── privacy.astro
+│   └── es/
+│       ├── index.astro
+│       ├── libro.astro
+│       ├── autores.astro
+│       ├── recursos.astro
+│       └── privacidad.astro
+├── styles/
+│   ├── global.css
+│   └── pte.ts
+├── consts.ts
+└── content.config.ts
+```
+
+**Next Steps:**
+- Add actual content (copy, bios, book descriptions) to replace placeholders
+- Add book cover images and author photos
+- Create Buy page (`/en/buy/`, `/es/comprar/`)
+- Implement mobile hamburger menu
+
+---
 
 ### 2024-12-10 - Codebase Cleanup & Foundation
 

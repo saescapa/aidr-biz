@@ -1,0 +1,319 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { SITE_TITLE_EN, ROUTES } from '../../consts';
+
+const lang = 'en';
+const pageTitle = `The Authors | ${SITE_TITLE_EN}`;
+const pageDescription = 'Meet Jorge Calvo and Carlos Escapa, the authors of The AI-driven Business.';
+
+const authors = [
+  {
+    name: 'Jorge Calvo',
+    title: '[Title / Role Placeholder]',
+    bio: [
+      '[First paragraph of Jorge\'s bio placeholder - background, expertise, and professional journey. Written in third person, 100-150 words.]',
+      '[Second paragraph placeholder - notable achievements, publications, speaking engagements, or industry recognition.]',
+    ],
+    links: {
+      linkedin: '#',
+      twitter: '#',
+      website: '#',
+    },
+  },
+  {
+    name: 'Carlos Escapa',
+    title: '[Title / Role Placeholder]',
+    bio: [
+      '[First paragraph of Carlos\'s bio placeholder - background, expertise, and professional journey. Written in third person, 100-150 words.]',
+      '[Second paragraph placeholder - notable achievements, publications, speaking engagements, or industry recognition.]',
+    ],
+    links: {
+      linkedin: '#',
+      twitter: '#',
+      website: '#',
+    },
+  },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href={ROUTES.home.en}>Home</a>
+      <span class="separator">/</span>
+      <span aria-current="page">Authors</span>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Meet the Authors</h1>
+      <p class="page-intro">[Introduction paragraph placeholder - brief overview of the authors' combined expertise and why they wrote this book together.]</p>
+    </div>
+  </section>
+
+  <!-- Authors -->
+  <section class="authors-section">
+    <div class="container">
+      {authors.map((author, index) => (
+        <article class={`author-profile ${index % 2 === 1 ? 'reversed' : ''}`}>
+          <div class="author-photo">
+            <div class="photo-placeholder">
+              <span>Photo</span>
+              <span class="photo-name">{author.name}</span>
+            </div>
+          </div>
+          <div class="author-content">
+            <h2>{author.name}</h2>
+            <p class="author-title">{author.title}</p>
+            {author.bio.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+            <div class="author-links">
+              <a href={author.links.linkedin} target="_blank" rel="noopener" aria-label={`${author.name} on LinkedIn`}>
+                <span class="link-icon">in</span>
+                LinkedIn
+              </a>
+              <a href={author.links.twitter} target="_blank" rel="noopener" aria-label={`${author.name} on Twitter`}>
+                <span class="link-icon">X</span>
+                Twitter
+              </a>
+              <a href={author.links.website} target="_blank" rel="noopener" aria-label={`${author.name}'s website`}>
+                <span class="link-icon">W</span>
+                Website
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="authors-cta">
+    <div class="container text-center">
+      <h2>Ready to Learn from the Experts?</h2>
+      <p>Discover actionable AI insights in their book.</p>
+      <a href={ROUTES.book.en} class="btn btn-primary">
+        Explore the Book
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 16px 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--accent-primary);
+  }
+
+  .breadcrumb .separator {
+    margin: 0 8px;
+  }
+
+  /* Page Header */
+  .page-header {
+    padding: 48px 0 64px;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    margin-bottom: 24px;
+  }
+
+  .page-intro {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+  }
+
+  /* Authors Section */
+  .authors-section {
+    padding: 0 0 96px;
+  }
+
+  .author-profile {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 64px;
+    align-items: start;
+    padding: 64px 0;
+    border-bottom: 1px solid var(--bg-secondary);
+  }
+
+  .author-profile:last-child {
+    border-bottom: none;
+  }
+
+  .author-profile.reversed {
+    grid-template-columns: 1fr 300px;
+  }
+
+  .author-profile.reversed .author-photo {
+    order: 2;
+  }
+
+  .author-profile.reversed .author-content {
+    order: 1;
+  }
+
+  .photo-placeholder {
+    width: 280px;
+    height: 350px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .photo-name {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  .author-content h2 {
+    margin-bottom: 8px;
+  }
+
+  .author-title {
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .author-content p {
+    margin-bottom: 1em;
+  }
+
+  .author-links {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .author-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .author-links a:hover {
+    color: var(--accent-primary);
+  }
+
+  .link-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--bg-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  /* CTA */
+  .authors-cta {
+    padding: 96px 24px;
+    background: var(--bg-secondary);
+  }
+
+  .authors-cta h2 {
+    margin-bottom: 16px;
+  }
+
+  .authors-cta p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .author-profile,
+    .author-profile.reversed {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .author-profile.reversed .author-photo,
+    .author-profile.reversed .author-content {
+      order: unset;
+    }
+
+    .author-photo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-placeholder {
+      width: 220px;
+      height: 275px;
+    }
+
+    .author-links {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .author-profile {
+      padding: 48px 0;
+      gap: 32px;
+    }
+
+    .authors-section {
+      padding-bottom: 48px;
+    }
+
+    .authors-cta {
+      padding: 64px 24px;
+    }
+  }
+</style>

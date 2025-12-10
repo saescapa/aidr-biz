@@ -19,3 +19,31 @@ export const LANGUAGES = ['en', 'es'] as const;
 export type Language = (typeof LANGUAGES)[number];
 
 export const DEFAULT_LANGUAGE: Language = 'en';
+
+// Base URL from Astro config (handles GitHub Pages subpath)
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Route mapping for language switching
+export const ROUTES = {
+  home: { en: `${BASE}/en/`, es: `${BASE}/es/` },
+  book: { en: `${BASE}/en/book/`, es: `${BASE}/es/libro/` },
+  authors: { en: `${BASE}/en/authors/`, es: `${BASE}/es/autores/` },
+  resources: { en: `${BASE}/en/resources/`, es: `${BASE}/es/recursos/` },
+  buy: { en: `${BASE}/en/buy/`, es: `${BASE}/es/comprar/` },
+  privacy: { en: `${BASE}/en/privacy/`, es: `${BASE}/es/privacidad/` },
+  cookies: { en: `${BASE}/en/cookies/`, es: `${BASE}/es/cookies/` },
+  terms: { en: `${BASE}/en/terms/`, es: `${BASE}/es/terminos/` },
+};
+
+export type RouteKey = keyof typeof ROUTES;
+
+// Get alternate language route for any given path
+export function getAlternateRoute(currentPath: string, targetLang: Language): string {
+  for (const [, routes] of Object.entries(ROUTES)) {
+    if (routes.en === currentPath || routes.es === currentPath) {
+      return routes[targetLang];
+    }
+  }
+  // Fallback to homepage
+  return ROUTES.home[targetLang];
+}
