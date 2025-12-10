@@ -1,226 +1,297 @@
 # Design Ethos
 
-Visual design philosophy and principles for the AI in Business book website.
+Visual design philosophy for the AI in Business book website.
 
 ---
 
 ## Design Vision
 
-**Professional Authority** - The site should convey expertise and trustworthiness befitting veteran professionals publishing on AI in business.
+**Confident Authority** - Bold, direct presentation that commands attention. No hedging, no corporate blandness.
 
-**Accessible Intelligence** - Complex AI topics made approachable through clear visual hierarchy and readable presentation.
+**Language as Identity** - English and Spanish editions have distinct visual identities rooted in their cover designs. Not translations—siblings.
 
-**Bilingual Parity** - Equal visual treatment for English and Spanish content; neither feels like a translation.
-
----
-
-## Core Principles
-
-### 1. Clarity Over Cleverness
-
-Every design decision should enhance comprehension:
-
-- Clear visual hierarchy guides the eye
-- Whitespace provides breathing room
-- Information is scannable in 10-15 seconds
-- CTAs are unmistakable
-
-### 2. Mobile-First Reality
-
-Most traffic is mobile; design accordingly:
-
-- Touch-friendly tap targets (44px minimum)
-- Readable text without zooming
-- No horizontal scrolling
-- Fast load times on cellular
-
-### 3. Readable Typography
-
-Designed for readability across all audiences, including those with hypermetropia:
-
-- Base font size: 18px minimum on desktop, 16px on mobile
-- Line height: 1.6 for body text
-- High contrast ratios (WCAG AA minimum)
-- Generous spacing between sections
-
-### 4. Credible Professionalism
-
-Design choices that build trust:
-
-- Clean, uncluttered layouts
-- Professional photography
-- Consistent visual language
-- Polished micro-interactions
+**Clarity Through Space** - Generous whitespace, clear hierarchy, scannable in seconds.
 
 ---
 
-## Color Philosophy
+## Color System
 
-### Primary Palette Direction
+### English Theme (Blue)
 
-**Suggested:** Deep blue/navy anchors with warm accent colors
+Derived from the English book cover's sky blue background.
 
-- **Authority colors:** Navy, charcoal, deep slate
-- **Warmth/humanity:** Warm white, cream, subtle gold
-- **Action accents:** Strategic use of energetic accent for CTAs
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--bg-primary` | `#A8D5E5` | Page background |
+| `--bg-secondary` | `#F5EDE0` | Cards, sections |
+| `--accent-primary` | `#3AAFAF` | CTAs, highlights, links |
+| `--accent-secondary` | `#D94744` | Emphasis, alerts |
+| `--accent-tertiary` | `#F2C94C` | Badges, decorative |
+| `--text-primary` | `#1A2E44` | Headings, body text |
+| `--text-secondary` | `#3D5A73` | Secondary text |
+| `--text-inverse` | `#FFFFFF` | Text on dark/accent |
 
-### Light/Dark Mode
+### Spanish Theme (Cream)
 
-Both modes should feel intentional, not inverted:
+Derived from the Spanish book cover's warm cream background.
 
-- **Light mode:** Clean, professional, approachable
-- **Dark mode:** Sophisticated, modern, easy on eyes
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--bg-primary` | `#F5EDE0` | Page background |
+| `--bg-secondary` | `#A8D5E5` | Cards, sections |
+| `--accent-primary` | `#3AAFAF` | CTAs, highlights, links |
+| `--accent-secondary` | `#D94744` | Emphasis, alerts |
+| `--accent-tertiary` | `#F2C94C` | Badges, decorative |
+| `--text-primary` | `#1A2E44` | Headings, body text |
+| `--text-secondary` | `#3D5A73` | Secondary text |
+| `--text-inverse` | `#FFFFFF` | Text on dark/accent |
 
-Automatic detection based on system preference with manual override.
+### Dark Mode (Both Languages)
+
+Dark mode inverts the hierarchy while preserving brand identity.
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--bg-primary` | `#0F1419` | Page background |
+| `--bg-secondary` | `#1A2E44` | Cards, sections |
+| `--accent-primary` | `#4ECDC4` | CTAs (lighter teal for contrast) |
+| `--accent-secondary` | `#FF6B6B` | Emphasis (lighter red) |
+| `--accent-tertiary` | `#FFE66D` | Badges (lighter yellow) |
+| `--text-primary` | `#F5F5F5` | Headings, body text |
+| `--text-secondary` | `#A0AEC0` | Secondary text |
+| `--text-inverse` | `#0F1419` | Text on light backgrounds |
+
+### Theme Selection
+
+- Light mode is default
+- System preference detection with manual override
+- Language determines light mode palette (EN=blue, ES=cream)
+- Dark mode is consistent across languages
 
 ---
 
-## Typography Direction
-
-### Font Characteristics
-
-**Headings:** Strong, confident, modern sans-serif
-- Clear at large sizes
-- Distinctive but not decorative
-
-**Body:** Highly readable, professional
-- Optimized for long-form reading
-- Clear at smaller sizes
-- Good language support (accents, special characters)
+## Typography
 
 ### Type Scale
 
-| Element | Desktop | Mobile |
-|---------|---------|--------|
-| H1 | 48px | 32px |
-| H2 | 36px | 28px |
-| H3 | 24px | 20px |
-| Body | 18px | 16px |
-| Small | 14px | 14px |
+Bold, confident headlines. Readable body text.
+
+| Element | Desktop | Mobile | Weight |
+|---------|---------|--------|--------|
+| Display | 72px | 48px | 700 |
+| H1 | 56px | 36px | 700 |
+| H2 | 40px | 28px | 600 |
+| H3 | 28px | 22px | 600 |
+| Body | 18px | 16px | 400 |
+| Small | 14px | 14px | 400 |
+
+### Font Characteristics
+
+**Headings**
+- Sans-serif, geometric preferred
+- Strong presence at large sizes
+- Clear letterforms
+
+**Body**
+- Highly readable sans-serif
+- Good support for Spanish characters (á, é, í, ó, ú, ñ, ü)
+- Comfortable for extended reading
+
+### Line Heights
+
+| Element | Line Height |
+|---------|-------------|
+| Display/H1 | 1.1 |
+| H2/H3 | 1.2 |
+| Body | 1.6 |
+| Small | 1.4 |
 
 ---
 
-## Layout Principles
+## Layout
 
 ### Content Width
 
-- Max content width: 720px for reading comfort
-- Max container width: 1200px for broader layouts
-- Generous margins on all screen sizes
-
-### Grid System
-
-- Mobile: Single column
-- Tablet: 2 columns where appropriate
-- Desktop: Max 3 columns for content grids
+| Container | Max Width |
+|-----------|-----------|
+| Content (reading) | 680px |
+| Standard | 1080px |
+| Wide | 1280px |
 
 ### Spacing Scale
 
-Consistent spacing creates rhythm:
+```
+4px   - xs (tight inline spacing)
+8px   - sm (related elements)
+16px  - md (default gaps)
+24px  - lg (component padding)
+48px  - xl (section gaps)
+96px  - 2xl (major divisions)
+128px - 3xl (hero spacing)
+```
 
-```
-4px  - Micro spacing (inline elements)
-8px  - Small spacing (related elements)
-16px - Base spacing (default gaps)
-24px - Medium spacing (section internals)
-48px - Large spacing (between sections)
-96px - XL spacing (major page divisions)
-```
+### Grid
+
+- Mobile: Single column
+- Tablet (768px+): 2 columns
+- Desktop (1024px+): Up to 3 columns
 
 ---
 
-## Component Design Direction
+## Visual Language
+
+### Geometric Aesthetic
+
+Inspired by the book cover's circuit/connection patterns:
+
+- Circles, triangles, rectangles as decorative elements
+- Connected dots/lines suggesting AI networks
+- Used sparingly, not overwhelming content
+
+### Shapes Usage
+
+| Shape | Meaning |
+|-------|---------|
+| Circles | Connection points, completeness |
+| Triangles | Direction, progress, growth |
+| Lines | Networks, relationships |
+| Rounded rectangles | Containers, buttons, cards |
+
+### Decorative Constraints
+
+- Decorative elements support, never distract
+- Consistent stroke weight when using lines
+- Color from the defined palette only
+- Reduce or remove on mobile if needed
+
+---
+
+## Components
 
 ### Buttons
 
-- Clear primary/secondary hierarchy
-- Generous padding for touch
-- Visible hover/focus states
-- Loading states for async actions
+**Primary (Teal)**
+- Background: `--accent-primary`
+- Text: `--text-inverse`
+- Padding: 16px 32px
+- Border-radius: 8px (or pill for emphasis)
+- Hover: Darken 10%
+
+**Secondary (Outline)**
+- Background: transparent
+- Border: 2px solid `--accent-primary`
+- Text: `--accent-primary`
+- Same padding and radius
+
+**Ghost**
+- Background: transparent
+- Text: `--text-primary`
+- Underline on hover
 
 ### Cards
 
-- Subtle shadows or borders for definition
-- Consistent internal padding
-- Clear visual grouping of related content
+- Background: `--bg-secondary`
+- Border-radius: 12px
+- Padding: 24px
+- Optional subtle shadow in light mode
+- No border (background contrast sufficient)
 
-### Navigation
+### Form Inputs
 
-- Sticky header for easy access
-- Clear current page indicator
-- Mobile hamburger menu
-- Language switcher prominent but not dominant
-
-### Book Display
-
-- High-quality cover images
-- Professional presentation
-- Clear CTAs to purchase
+- Height: 48px minimum
+- Border: 1px solid `--text-secondary`
+- Border-radius: 8px
+- Focus: 2px solid `--accent-primary`
+- Padding: 12px 16px
 
 ---
 
-## Imagery Guidelines
+## Imagery
 
-### Photography
+### Book Covers
 
-- Professional author headshots
-- Consistent style and quality
-- Appropriate for business context
+- High resolution required (min 1500px height)
+- Display with subtle shadow/depth
+- Consistent presentation both editions
 
-### Book Cover
+### Author Photos
 
-- High resolution (minimum 1500px wide for hero)
-- Multiple formats for different contexts
-- Proper aspect ratio maintenance
+- Professional headshots
+- Consistent style and lighting
+- Square or 4:5 aspect ratio
+- Same treatment for both authors
 
-### Iconography
+### Decorative
 
-- Simple, recognizable icons
-- Consistent stroke weight/style
-- Purposeful use (not decorative)
-
----
-
-## Accessibility Requirements
-
-### WCAG Compliance
-
-Target WCAG 2.1 AA compliance:
-
-- Color contrast ratios 4.5:1 minimum for text
-- All interactive elements keyboard accessible
-- Proper heading hierarchy
-- Alt text for meaningful images
-- Focus indicators visible
-
-### Inclusive Design
-
-- No information conveyed by color alone
-- Sufficient touch targets
-- Readable without images
-- Usable without JavaScript (graceful degradation)
+- Geometric patterns from brand
+- Abstract AI/network visualizations
+- No stock photography
 
 ---
 
-## Performance as Design
+## Accessibility
 
-Fast load times are a design feature:
+### Contrast Requirements
 
-- Optimize images aggressively
-- Minimize render-blocking resources
-- Lazy load below-fold content
-- Target sub-2-second first meaningful paint
+All text meets WCAG 2.1 AA:
+- Normal text: 4.5:1 minimum
+- Large text (24px+): 3:1 minimum
+- UI components: 3:1 minimum
+
+### Interactive Elements
+
+- Focus indicators visible (2px outline)
+- Touch targets: 44px minimum
+- Keyboard navigation supported
+- Skip links provided
+
+### Motion
+
+- Respect `prefers-reduced-motion`
+- No auto-playing animations
+- Transitions under 300ms
 
 ---
 
-## Iteration Process
+## Performance
 
-This design ethos is a living document:
+Design decisions that support performance:
 
-1. Start with these principles
-2. Implement and test with real content
-3. Gather feedback
-4. Refine and document changes
-5. Update this document
+- System fonts as fallback
+- SVG for icons and geometric elements
+- Lazy load below-fold images
+- No decorative web fonts if possible
+- Target: 100 Lighthouse performance
 
-Design decisions should reference back to these principles for consistency.
+---
+
+## Implementation Notes
+
+### CSS Custom Properties
+
+```css
+:root[data-lang="en"] {
+  --bg-primary: #A8D5E5;
+  --bg-secondary: #F5EDE0;
+  /* ... */
+}
+
+:root[data-lang="es"] {
+  --bg-primary: #F5EDE0;
+  --bg-secondary: #A8D5E5;
+  /* ... */
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #0F1419;
+  --bg-secondary: #1A2E44;
+  /* ... */
+}
+```
+
+### Theme Switching
+
+1. Check `localStorage` for saved preference
+2. Fall back to system preference (`prefers-color-scheme`)
+3. Default to light mode
+4. Language determines light palette variant

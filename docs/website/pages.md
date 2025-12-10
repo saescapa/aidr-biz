@@ -1,303 +1,378 @@
 # Page Specifications
 
-Detailed breakdown of each page with intended purposes and UI components.
+Layout and component breakdown for each page. All copy shown as placeholders.
 
 ---
 
-## 1. Welcome Page (Homepage)
+## 1. Welcome (Homepage)
 
 **Routes:** `/en/` | `/es/`
 
-**Purpose:** Capture attention, communicate value, drive to purchase within 10-15 seconds.
+**Purpose:** Immediate impact. Book + value + action.
 
-### Sections
-
-#### Hero Section
+### Hero Section
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│                    [Book Cover Image]                       │
-│                                                             │
-│              [Book Title]                                   │
-│              [Subtitle/tagline placeholder]                 │
-│                                                             │
-│         [Primary CTA]    [Secondary CTA]                    │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│                                                                            │
+│                          [DISPLAY HEADLINE]                                │
+│                                                                            │
+│                          [Subheadline placeholder]                         │
+│                                                                            │
+│                                                                            │
+│              [Book Cover]                    [Primary CTA]                 │
+│                                              [Secondary CTA]               │
+│                                                                            │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
-| Element | Specification |
-|---------|---------------|
-| Book cover | High-res image, min 1500px wide |
-| Headline | Book title, large and prominent |
-| Subheadline | Value proposition, <100 words |
-| CTAs | Primary buttons to purchase pages |
+| Element | Spec |
+|---------|------|
+| Headline | Display size (72px), bold statement |
+| Subheadline | Body size, 1-2 lines max |
+| Book cover | Large, with depth/shadow |
+| Primary CTA | Teal button, purchase link |
+| Secondary CTA | Outline button, learn more |
 
-#### Key Highlights
-
-3-5 bullet points (content TBD):
-
-- [Highlight 1 placeholder]
-- [Highlight 2 placeholder]
-- [Highlight 3 placeholder]
-
-#### Author Preview
+### Value Section
 
 ```
-┌───────────────────────┐  ┌───────────────────────┐
-│    [Author 1 Photo]   │  │    [Author 2 Photo]   │
-│                       │  │                       │
-│    Name               │  │    Name               │
-│    Brief credential   │  │    Brief credential   │
-│                       │  │                       │
-│    [Read More →]      │  │    [Read More →]      │
-└───────────────────────┘  └───────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│                          [Section heading]                                 │
+│                                                                            │
+│     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐               │
+│     │   [Icon]    │     │   [Icon]    │     │   [Icon]    │               │
+│     │             │     │             │     │             │               │
+│     │  [Title]    │     │  [Title]    │     │  [Title]    │               │
+│     │  [Desc]     │     │  [Desc]     │     │  [Desc]     │               │
+│     └─────────────┘     └─────────────┘     └─────────────┘               │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+- 3 value propositions
+- Icon + title + short description each
+- Cards or clean layout
+
+### Authors Preview
+
+```
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│     [Photo]              [Photo]                                           │
+│                                                                            │
+│     [Name]               [Name]                                            │
+│     [Credential]         [Credential]                                      │
+│                                                                            │
+│                     [Link to Authors page]                                 │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
 - Professional headshots
-- 1-2 line credentials
-- Links to full author pages
+- Name + 1-line credential
+- Single link to full bios
 
-#### Testimonials (When Available)
+### Email Capture
 
-- Featured endorsements or reviews
-- Attribution with credibility markers
-- Carousel or grid display
+```
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│                          [Heading placeholder]                             │
+│                          [Description placeholder]                         │
+│                                                                            │
+│                    ┌─────────────────────┐  ┌─────────┐                   │
+│                    │ [Email input]       │  │ Submit  │                   │
+│                    └─────────────────────┘  └─────────┘                   │
+│                                                                            │
+│                          [Privacy note]                                    │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+```
 
-#### Final CTA
+- Simple email input + submit button
+- Privacy reassurance text
+- Backend connection TBD
 
-- Repeat primary call to action
-- Newsletter signup (optional)
+### Final CTA
+
+```
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│                          [Closing statement]                               │
+│                                                                            │
+│                          [Primary CTA Button]                              │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+- Repeat primary action
+- Bold closing statement
 
 ---
 
-## 2. Book Page
+## 2. Book
 
 **Routes:** `/en/book/` | `/es/libro/`
 
-**Purpose:** Provide comprehensive book information for informed purchase decision.
+**Purpose:** Full book details for purchase decision.
 
-### Sections
-
-#### Book Description
-
-- Full description (300-500 words)
-- Written compellingly, not just factual
-- Addresses target audience pain points
-
-#### Table of Contents
+### Book Header
 
 ```
-[Table of contents placeholder]
-[Actual TOC will be provided by client]
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│     [Book Cover]                [Title]                                    │
+│                                 [Subtitle]                                 │
+│                                                                            │
+│                                 [Primary CTA]                              │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
-- Collapsible/expandable for length
-- Demonstrates depth and coverage
+### Description
 
-#### Target Audience
+```
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│  [Section heading]                                                         │
+│                                                                            │
+│  [Description paragraph placeholder]                                       │
+│  [Description paragraph placeholder]                                       │
+│  [Description paragraph placeholder]                                       │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+```
 
-Clear list of who benefits (content TBD):
+- 300-500 words
+- Compelling, addresses pain points
 
-- [Target audience 1]
-- [Target audience 2]
-- [Target audience 3]
-- [Target audience 4]
+### Table of Contents
 
-#### Book Specifications
+```
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│  [Section heading]                                                         │
+│                                                                            │
+│  [Chapter 1 placeholder]                                                   │
+│  [Chapter 2 placeholder]                                                   │
+│  [Chapter 3 placeholder]                                                   │
+│  ...                                                                       │
+│                                                                            │
+│  [Expand/Collapse if long]                                                 │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+```
 
-| Spec | Value |
-|------|-------|
+### Target Audience
+
+```
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│  [Section heading]                                                         │
+│                                                                            │
+│  • [Audience 1 placeholder]                                                │
+│  • [Audience 2 placeholder]                                                │
+│  • [Audience 3 placeholder]                                                │
+│  • [Audience 4 placeholder]                                                │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Specifications
+
+| Field | Value |
+|-------|-------|
 | Format | [TBD] |
 | Pages | [TBD] |
 | ISBN | [TBD] |
-| Published | [TBD] |
 | Publisher | [TBD] |
+| Published | [TBD] |
 
-#### Sample Preview
-
-"Look Inside" feature or sample pages:
-
-- Embed PDF viewer for sample chapter
-- Or link to Resources page for download
-- Multiple pages, not just cover
-
-#### Purchase CTA
+### Purchase CTA
 
 - Links to both editions
-- Clear language for each
+- Clear language indicators
 
 ---
 
-## 3. Authors Page
+## 3. Authors
 
 **Routes:** `/en/authors/` | `/es/autores/`
 
-**Purpose:** Establish credibility and expertise of both authors.
+**Purpose:** Establish expertise and credibility.
 
-### Combined or Separate
-
-Can be single page with both authors, or individual pages. Recommendation: single page with anchor links.
-
-### Per-Author Section
+### Author Section (repeat for each)
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│  [Professional Headshot]                                    │
-│                                                             │
-│  Author Name                                                │
-│  Title / Current Role                                       │
-│                                                             │
-│  Bio (200-300 words)                                        │
-│  - Background and experience                                │
-│  - AI/business expertise                                    │
-│  - Notable achievements                                     │
-│  - Current work                                             │
-│                                                             │
-│  [LinkedIn]  [Twitter]  [Website]                          │
-│                                                             │
-│  Other Books (if applicable)                                │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│     [Headshot]                                                             │
+│                                                                            │
+│     [Name]                                                                 │
+│     [Title / Role]                                                         │
+│                                                                            │
+│     [Bio paragraph placeholder]                                            │
+│     [Bio paragraph placeholder]                                            │
+│                                                                            │
+│     [LinkedIn]  [Twitter]  [Website]                                       │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Elements
-
-| Element | Specification |
-|---------|---------------|
-| Photo | Professional headshot, consistent style both authors |
+| Element | Spec |
+|---------|------|
+| Photo | Professional headshot, consistent style |
+| Name | H2 |
+| Title | Subtitle text |
 | Bio | 200-300 words, third person |
-| Credentials | Specific, verifiable achievements |
-| Social links | Professional networks only |
-| Other books | Placeholder for future publications |
+| Links | Icon buttons, professional networks |
+
+### Authors (Data)
+
+**Jorge Calvo**
+- Photo: [TBD]
+- Bio: [Placeholder]
+- Links: [TBD]
+
+**Carlos Escapa**
+- Photo: [TBD]
+- Bio: [Placeholder]
+- Links: [TBD]
 
 ---
 
-## 4. Resources Page
+## 4. Resources
 
 **Routes:** `/en/resources/` | `/es/recursos/`
 
-**Purpose:** Provide valuable free content to engage visitors and demonstrate expertise.
+**Purpose:** Value exchange, demonstrate expertise.
 
-### Available Downloads
-
-#### Sample Chapters
+### Resource Grid
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  [Resource Title]                                           │
-│                                                             │
-│  [Resource description placeholder]                         │
-│                                                             │
-│  [Download CTA]                                             │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│  [Page heading]                                                            │
+│  [Page description placeholder]                                            │
+│                                                                            │
+│  ┌──────────────────────┐  ┌──────────────────────┐                       │
+│  │                      │  │                      │                       │
+│  │  [Resource title]    │  │  [Resource title]    │                       │
+│  │  [Description]       │  │  [Description]       │                       │
+│  │                      │  │                      │                       │
+│  │  [Download CTA]      │  │  [Download CTA]      │                       │
+│  │                      │  │                      │                       │
+│  └──────────────────────┘  └──────────────────────┘                       │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
-Resources to be offered (TBD):
-- Sample chapters
-- AI Glossary
-- Use cases
-- Other materials as determined by client
+### Planned Resources
 
-### Download Tracking
+| Resource | Format | Status |
+|----------|--------|--------|
+| Sample chapter | PDF | TBD |
+| AI Glossary | PDF | TBD |
+| Use cases | PDF | TBD |
 
-Track download numbers for analytics:
+### Download Behavior
 
-- Total downloads per resource
-- Optional: Display counts for social proof
-- Analytics event on each download
-
-### Email Capture (Optional)
-
-- Gate high-value downloads behind email
-- Or offer ungated with newsletter opt-in
+- Direct download (no gate for now)
+- Track analytics events
+- Open in new tab
 
 ---
 
-## 5. Where to Buy Page
+## 5. Buy
 
 **Routes:** `/en/buy/` | `/es/comprar/`
 
-**Purpose:** Remove friction from purchase decision.
+**Purpose:** Clear path to purchase.
 
-### Purchase Options
+### Edition Cards
 
 ```
-┌──────────────────────────────┐  ┌──────────────────────────────┐
-│                              │  │                              │
-│  English Edition             │  │  Spanish Edition             │
-│                              │  │                              │
-│  [Book Cover EN]             │  │  [Book Cover ES]             │
-│                              │  │                              │
-│  Available on Amazon         │  │  Available on Libros de      │
-│                              │  │  Cabecera                    │
-│  Formats:                    │  │                              │
-│  • Kindle                    │  │  Formats:                    │
-│  • Paperback                 │  │  • Print                     │
-│                              │  │  • Digital                   │
-│                              │  │                              │
-│  [Buy on Amazon →]           │  │  [Comprar →]                 │
-│                              │  │                              │
-└──────────────────────────────┘  └──────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│  [Page heading]                                                            │
+│                                                                            │
+│  ┌──────────────────────────┐    ┌──────────────────────────┐             │
+│  │                          │    │                          │             │
+│  │  [EN Cover]              │    │  [ES Cover]              │             │
+│  │                          │    │                          │             │
+│  │  English Edition         │    │  Edición Española        │             │
+│  │                          │    │                          │             │
+│  │  Available on:           │    │  Disponible en:          │             │
+│  │  • Amazon (Kindle)       │    │  • Libros de Cabecera    │             │
+│  │  • Amazon (Paperback)    │    │                          │             │
+│  │                          │    │                          │             │
+│  │  [Buy on Amazon →]       │    │  [Comprar →]             │             │
+│  │                          │    │                          │             │
+│  └──────────────────────────┘    └──────────────────────────┘             │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Information to Include
+### Purchase Links
 
-- Available formats (Kindle, paperback, hardcover)
-- Price indicators (or note prices on retailer sites)
-- Countries/regions where available
-- Expected delivery information (optional)
+| Edition | Retailer | URL |
+|---------|----------|-----|
+| English | Amazon | https://www.amazon.com/dp/B0FRZBF7C3 |
+| Spanish | Libros de Cabecera | https://librosdecabecera.com/la-ia-en-los-negocios/ |
 
-### External Links
+### Link Behavior
 
-- Clear indication links go to external sites
-- Open in new tab
+- External links open in new tab
 - Track outbound clicks
+- Clear external link indicator
 
 ---
 
-## 6. Legal Pages
+## 6. Privacy
 
 **Routes:** `/en/privacy/` | `/es/privacidad/`
 
-**Purpose:** Compliance and transparency.
+**Purpose:** Legal compliance.
 
-### Privacy Policy
+### Content
 
-Standard privacy policy covering:
+```
+┌────────────────────────────────────────────────────────────────────────────┐
+│                                                                            │
+│  [Page heading]                                                            │
+│  [Last updated: date]                                                      │
+│                                                                            │
+│  [Privacy policy content placeholder]                                      │
+│  [Section placeholder]                                                     │
+│  [Section placeholder]                                                     │
+│                                                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+```
 
-- Data collection practices
-- Cookie usage
-- Third-party services (analytics, etc.)
-- User rights
-- Contact information
-
-### Cookie Policy
-
-If cookies are used:
-
-- Types of cookies
-- Purpose of each
-- How to manage/opt-out
-
-### GDPR Compliance
-
-- Avoid banner if possible (minimal cookie usage)
-- If banner needed, implement proper consent flow
-- Clear opt-out mechanism
-
-### Content Approach
-
-- Use AI-generated draft as starting point
-- Review for accuracy
-- Keep language accessible, not overly legal
+- Standard privacy policy
+- Generated content, reviewed for accuracy
+- Updated date shown
 
 ---
 
-## Shared Components Across Pages
+## Responsive Behavior
+
+| Page | Mobile Adaptation |
+|------|-------------------|
+| Welcome | Hero stacks vertically, single prominent CTA |
+| Book | Cover above content, TOC collapsible |
+| Authors | Full-width photos, stacked bios |
+| Resources | Single column cards |
+| Buy | Editions stack, full-width CTAs |
+| Privacy | Standard text layout |
+
+---
+
+## Shared Elements
 
 ### Breadcrumbs
 
@@ -305,32 +380,10 @@ If cookies are used:
 Home > Book
 ```
 
-- Show on all pages except homepage
+- All pages except homepage
 - Structured data for SEO
 
-### Related Content
+### Page Transitions
 
-At bottom of pages, suggest:
-
-- Related pages on site
-- Related downloads
-- Purchase CTA
-
-### Social Sharing
-
-- Share buttons on relevant pages (Book, Authors)
-- Pre-populated share text
-- Proper Open Graph tags for previews
-
----
-
-## Responsive Behavior Summary
-
-| Page | Mobile Adaptations |
-|------|-------------------|
-| Welcome | Hero stacks, single CTA prominent |
-| Book | TOC collapsible, specs in list format |
-| Authors | Photos smaller, bios full width |
-| Resources | Download cards stack vertically |
-| Buy | Editions stack, CTAs full width |
-| Legal | Standard text layout |
+- Smooth, subtle transitions between pages
+- No jarring flashes on theme/language change
