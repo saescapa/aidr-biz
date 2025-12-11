@@ -1,62 +1,60 @@
-# Astro Starter Kit: Blog
+# AI in Business - Website
 
-```sh
-pnpm create astro@latest -- --template blog
+Promotional website for "AI in Business" book. Bilingual (English/Spanish).
+
+- **English Edition:** [Amazon](https://www.amazon.com/dp/B0FRZBF7C3)
+- **Spanish Edition:** [Libros de Cabecera](https://librosdecabecera.com/la-ia-en-los-negocios/)
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) v18.17.1 or v20.3.0+ (v22+ recommended)
+- [pnpm](https://pnpm.io/) v10+
+
+## Quick Start
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Visit [http://localhost:4321/aidr-biz](http://localhost:4321/aidr-biz)
 
-Features:
+## Commands
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+| Command | Action |
+|---------|--------|
+| `pnpm install` | Install dependencies |
+| `pnpm dev` | Start dev server at `localhost:4321` |
+| `pnpm build` | Build production site to `./dist/` |
+| `pnpm preview` | Preview production build locally |
 
-## 🚀 Project Structure
+## Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```
+src/
+├── components/     # Reusable UI components
+├── layouts/        # Page layouts
+├── pages/
+│   ├── en/         # English pages
+│   └── es/         # Spanish pages
+├── styles/         # Global CSS and theme config
+└── consts.ts       # Site configuration and routes
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Tech Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Framework:** [Astro](https://astro.build/) 5.x
+- **Package Manager:** pnpm
+- **Theming:** [PTE](https://github.com/saescapa/pte) (Programmatic Theme Engine)
+- **Deployment:** GitHub Pages
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Documentation
 
-Any static assets, like images, can be placed in the `public/` directory.
+See `docs/main.md` for full project documentation.
 
-## 🧞 Commands
+## Non-Technical Setup
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+If you're not familiar with development tools, see [NON_TECHNICAL_README.md](./NON_TECHNICAL_README.md) for a step-by-step installation guide.
