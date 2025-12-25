@@ -8,13 +8,50 @@ Track recent changes and current project state here. Update this file at the end
 
 **Last Updated:** 2025-12-25
 
-**Status:** Core pages with real content, book covers, mobile navigation complete (EN/ES)
+**Status:** Core pages with real content, book covers, mobile navigation complete (EN/ES). Spanish copy proofread. Legal pages removed.
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-25 - Spanish Copy Review & Legal Pages Removal
+
+**Work Completed:**
+- Reviewed all English and Spanish copy for grammar and missing accents
+- Fixed missing Spanish accents across 4 files (índice, capítulo, términos, líder, etc.)
+- Added missing opening question marks (¿) to Spanish questions
+- Removed all legal pages (privacy, cookies, terms) per user request
+
+**Spanish Accent Fixes:**
+- `es/index.astro`: "Más", "Biografías"
+- `es/libro.astro`: "cómo", "está", "índice", "aprenderás", "Edición", added "¿"
+- `es/autores.astro`: "prácticos", added "¿"
+- `es/recursos.astro`: "capítulos", "términos", "líder", "debería", "Mantén", "implementación", "líderes", "están", "Párrafo", "introducción", "Guía", "Más", added "¿"
+
+**Files Deleted:**
+- `src/pages/en/privacy.astro`
+- `src/pages/es/privacidad.astro`
+- `src/pages/en/cookies.astro`
+- `src/pages/es/cookies.astro`
+- `src/pages/en/terms.astro`
+- `src/pages/es/terminos.astro`
+
+**Files Modified:**
+- `src/pages/es/index.astro` - Accent fixes
+- `src/pages/es/libro.astro` - Accent fixes
+- `src/pages/es/autores.astro` - Accent fixes
+- `src/pages/es/recursos.astro` - Accent fixes
+- `src/consts.ts` - Removed privacy, cookies, terms routes
+- `src/components/Footer.astro` - Removed legal links section
+
+**Next Steps:**
+- Add author photos
+- Define and populate resources page content
+- Meta tags setup (OpenGraph, Twitter)
+
+---
 
 ### 2025-12-25 - Skip Link & Mobile Navigation
 
