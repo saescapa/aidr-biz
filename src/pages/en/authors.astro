@@ -1,9 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { SITE_TITLE_EN, ROUTES } from '../../consts';
+import { ROUTES } from '../../consts';
 
 const lang = 'en';
-const pageTitle = `The Authors | ${SITE_TITLE_EN}`;
+const pageTitle = 'The Authors';
 const pageDescription = 'Meet Jorge Calvo and Carlos Escapa, the authors of The AI-driven Business.';
 
 const authors = [
@@ -37,6 +37,24 @@ const authors = [
 ---
 
 <Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": authors.map((author, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Person",
+        "name": author.name,
+        "jobTitle": author.title,
+        "description": author.bio.join(' '),
+        "affiliation": {
+          "@type": "Organization",
+          "name": "ESADE Executive Education"
+        }
+      }
+    }))
+  })} />
   <!-- Breadcrumb -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <div class="container">

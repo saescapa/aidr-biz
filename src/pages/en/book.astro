@@ -5,11 +5,39 @@ import { SITE_TITLE_EN, PURCHASE_LINKS, ROUTES } from '../../consts';
 import coverEN from '../../assets/cover-en.jpg';
 
 const lang = 'en';
-const pageTitle = `The Book | ${SITE_TITLE_EN}`;
+const pageTitle = 'The Book';
 const pageDescription = 'Discover how AI is transforming business. Full details, table of contents, and what you will learn.';
 ---
 
 <Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "The AI-driven Business",
+    "alternativeHeadline": "Leading, Competing and Thriving in the Age of Artificial Intelligence",
+    "description": pageDescription,
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Jorge Calvo"
+      },
+      {
+        "@type": "Person",
+        "name": "Carlos Escapa"
+      }
+    ],
+    "isbn": "979-13-990550-2-3",
+    "numberOfPages": 353,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Libros de Cabecera"
+    },
+    "datePublished": "2025-10",
+    "inLanguage": "en",
+    "bookFormat": "https://schema.org/Paperback",
+    "url": PURCHASE_LINKS.en,
+    "image": "https://saescapa.github.io/aidr-biz/og-en.png"
+  })} />
   <!-- Breadcrumb -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <div class="container">
