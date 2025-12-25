@@ -8,13 +8,37 @@ Track recent changes and current project state here. Update this file at the end
 
 **Last Updated:** 2025-12-25
 
-**Status:** Core pages with real content (EN/ES), resources page pending
+**Status:** Core pages with real content and book covers (EN/ES)
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-25 - Book Cover Images
+
+**Work Completed:**
+- Added book cover images to homepage and book pages
+- Renamed cover image files for cleaner asset management
+- Replaced placeholder divs with Astro Image components for optimization
+
+**Files Added:**
+- `src/assets/cover-en.jpg` (renamed from `english-cover_page-0001.jpg`)
+- `src/assets/cover-es.jpg` (renamed from `spanish-cover_page-0001.jpg`)
+
+**Files Modified:**
+- `src/pages/en/index.astro` - Hero section now displays EN cover
+- `src/pages/es/index.astro` - Hero section now displays ES cover
+- `src/pages/en/book.astro` - Book header now displays EN cover
+- `src/pages/es/libro.astro` - Book header now displays ES cover
+
+**Next Steps:**
+- Add author photos
+- Define and populate resources page content
+- Implement mobile hamburger menu
+
+---
 
 ### 2025-12-25 - Content Population (EN/ES)
 
