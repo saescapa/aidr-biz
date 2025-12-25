@@ -22,6 +22,9 @@ const { title, description, lang = 'en', image } = Astro.props;
     <ClientRouter />
   </head>
   <body>
+    <a href="#main" class="skip-link">
+      {lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}
+    </a>
     <Header lang={lang} transition:persist />
     <main id="main" transition:animate="fade">
       <slot />

@@ -8,13 +8,42 @@ Track recent changes and current project state here. Update this file at the end
 
 **Last Updated:** 2025-12-25
 
-**Status:** Core pages with real content and book covers (EN/ES)
+**Status:** Core pages with real content, book covers, mobile navigation complete (EN/ES)
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-25 - Skip Link & Mobile Navigation
+
+**Work Completed:**
+- Added bilingual skip link for accessibility ("Skip to content" / "Saltar al contenido")
+- Implemented mobile hamburger menu with animated open/close
+- Mobile header shows title + hamburger (language switcher moved to menu)
+- Desktop header unchanged (title, nav, language switcher, CTA)
+- Added aria-current="page" to active nav items
+- Menu closes on: nav click, Escape key, resize to desktop
+
+**Files Modified:**
+- `src/layouts/Layout.astro` - Added skip link before header
+- `src/styles/global.css` - Skip link styling (visible on focus)
+- `src/components/Header.astro` - Complete mobile menu implementation
+
+**Accessibility Features:**
+- Skip link with keyboard focus visibility
+- Proper ARIA attributes (aria-expanded, aria-controls, aria-hidden)
+- 44px touch targets on hamburger button
+- Escape key closes menu
+- Focus management
+
+**Next Steps:**
+- Add author photos
+- Define and populate resources page content
+- Meta tags setup (OpenGraph, Twitter)
+
+---
 
 ### 2025-12-25 - Book Cover Images
 
