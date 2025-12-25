@@ -33,6 +33,12 @@ const cta = {
 const homeHref = ROUTES.home[lang];
 const alternateLang: Language = lang === 'es' ? 'en' : 'es';
 const alternateHref = getAlternateRoute(path, alternateLang);
+
+// Menu labels
+const menuLabels = {
+  en: { open: 'Open menu', close: 'Close menu' },
+  es: { open: 'Abrir menú', close: 'Cerrar menú' },
+};
 ---
 
 <header>
@@ -41,24 +47,125 @@ const alternateHref = getAlternateRoute(path, alternateLang);
       {lang === 'es' ? 'La IA en los Negocios' : 'The AI-driven Business'}
     </a>
 
-    <nav aria-label="Main">
+    <nav class="desktop-nav" aria-label="Main">
       {nav[lang].map((item) => (
-        <a href={item.href}>{item.label}</a>
+        <a
+          href={item.href}
+          aria-current={path === item.href ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
       ))}
     </nav>
 
     <div class="header-actions">
-      <div class="lang-switcher">
+      <div class="lang-switcher desktop-only">
         <a href={homeHref} class:list={[{ active: true }]}>{lang.toUpperCase()}</a>
         <span class="divider">|</span>
         <a href={alternateHref}>{alternateLang.toUpperCase()}</a>
       </div>
-      <a href={cta[lang].href} class="cta-button">{cta[lang].label}</a>
+      <a href={cta[lang].href} class="cta-button desktop-only">{cta[lang].label}</a>
+
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label={menuLabels[lang].open}
+        onclick="toggleMobileMenu()"
+      >
+        <span class="hamburger-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
     </div>
+  </div>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      {nav[lang].map((item) => (
+        <a
+          href={item.href}
+          class="mobile-nav-link"
+          aria-current={path === item.href ? 'page' : undefined}
+          onclick="toggleMobileMenu()"
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="mobile-menu-divider"></div>
+      <a href={cta[lang].href} class="mobile-cta" onclick="toggleMobileMenu()">
+        {cta[lang].label}
+      </a>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-lang-switcher">
+        <a href={homeHref} class="active" onclick="toggleMobileMenu()">{lang.toUpperCase()}</a>
+        <span class="divider">|</span>
+        <a href={alternateHref} onclick="toggleMobileMenu()">{alternateLang.toUpperCase()}</a>
+      </div>
+    </nav>
   </div>
 </header>
 
+<script is:inline>
+  function toggleMobileMenu() {
+    var btn = document.getElementById('menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    var header = document.querySelector('header');
+
+    if (!btn || !menu) return;
+
+    var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    if (isOpen) {
+      // Close with animation
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      header.classList.remove('menu-open');
+      menu.classList.add('is-closing');
+
+      menu.addEventListener('animationend', function handler() {
+        menu.classList.remove('is-open', 'is-closing');
+        document.body.style.overflow = '';
+        menu.removeEventListener('animationend', handler);
+      });
+    } else {
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+      menu.classList.add('is-open');
+      header.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var btn = document.getElementById('menu-toggle');
+      if (btn && btn.getAttribute('aria-expanded') === 'true') {
+        toggleMobileMenu();
+      }
+    }
+  });
+
+  // Close on resize to desktop
+  window.matchMedia('(min-width: 769px)').addEventListener('change', function(e) {
+    if (e.matches) {
+      var btn = document.getElementById('menu-toggle');
+      if (btn && btn.getAttribute('aria-expanded') === 'true') {
+        toggleMobileMenu();
+      }
+    }
+  });
+</script>
+
 <style>
+  /* ===== Header Base ===== */
   header {
     position: sticky;
     top: 0;
@@ -78,6 +185,7 @@ const alternateHref = getAlternateRoute(path, alternateLang);
     height: 80px;
   }
 
+  /* ===== Logo ===== */
   .logo {
     font-family: var(--font-heading);
     font-weight: 700;
@@ -91,12 +199,13 @@ const alternateHref = getAlternateRoute(path, alternateLang);
     color: var(--accent-primary);
   }
 
-  nav {
+  /* ===== Desktop Navigation ===== */
+  .desktop-nav {
     display: flex;
     gap: 32px;
   }
 
-  nav a {
+  .desktop-nav a {
     position: relative;
     color: var(--text-primary, #1A2E44);
     text-decoration: none;
@@ -106,7 +215,7 @@ const alternateHref = getAlternateRoute(path, alternateLang);
     transition: color var(--transition-fast);
   }
 
-  nav a::after {
+  .desktop-nav a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -117,14 +226,20 @@ const alternateHref = getAlternateRoute(path, alternateLang);
     transition: width var(--transition-base);
   }
 
-  nav a:hover {
+  .desktop-nav a:hover {
     color: var(--accent-primary, #3AAFAF);
   }
 
-  nav a:hover::after {
+  .desktop-nav a:hover::after,
+  .desktop-nav a[aria-current="page"]::after {
     width: 100%;
   }
 
+  .desktop-nav a[aria-current="page"] {
+    color: var(--accent-primary);
+  }
+
+  /* ===== Header Actions ===== */
   .header-actions {
     display: flex;
     align-items: center;
@@ -144,9 +259,7 @@ const alternateHref = getAlternateRoute(path, alternateLang);
     text-decoration: none;
     padding: 4px 8px;
     border-radius: 4px;
-    transition:
-      color var(--transition-fast),
-      background-color var(--transition-fast);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
   }
 
   .lang-switcher a:hover {
@@ -164,7 +277,9 @@ const alternateHref = getAlternateRoute(path, alternateLang);
     opacity: 0.5;
   }
 
+  /* ===== CTA Button ===== */
   .cta-button {
+    display: block;
     background: var(--accent-primary, #3AAFAF);
     color: white;
     padding: 12px 24px;
@@ -172,10 +287,7 @@ const alternateHref = getAlternateRoute(path, alternateLang);
     text-decoration: none;
     font-family: var(--font-heading);
     font-weight: 600;
-    transition:
-      background-color var(--transition-base),
-      transform var(--transition-fast),
-      box-shadow var(--transition-base);
+    transition: background-color var(--transition-base), transform var(--transition-fast), box-shadow var(--transition-base);
   }
 
   .cta-button:hover {
@@ -188,14 +300,220 @@ const alternateHref = getAlternateRoute(path, alternateLang);
     transform: translateY(0);
   }
 
-  /* Mobile styles - TODO: implement hamburger menu */
+  /* Desktop: show CTA */
+  .desktop-only {
+    display: block;
+  }
+
+  /* ===== Mobile Menu Toggle - HIDDEN on desktop ===== */
+  .menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary, #1A2E44);
+    border-radius: 1px;
+    position: absolute;
+    left: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .hamburger-icon span:nth-child(1) {
+    top: 4px;
+  }
+
+  .hamburger-icon span:nth-child(2) {
+    top: 11px;
+  }
+
+  .hamburger-icon span:nth-child(3) {
+    top: 18px;
+  }
+
+  /* Hamburger to X animation */
+  header.menu-open .hamburger-icon span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  header.menu-open .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  header.menu-open .hamburger-icon span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ===== Mobile Menu Overlay - HIDDEN on desktop ===== */
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 12px 24px;
+    transition: color var(--transition-fast);
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link[aria-current="page"] {
+    color: var(--accent-primary);
+  }
+
+  .mobile-menu-divider {
+    width: 60px;
+    height: 1px;
+    background: color-mix(in srgb, var(--text-secondary) 30%, transparent);
+    margin: 16px 0;
+  }
+
+  .mobile-cta {
+    display: inline-block;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
+    padding: 16px 48px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-decoration: none;
+    margin-top: 16px;
+    transition: background-color var(--transition-base), transform var(--transition-fast);
+  }
+
+  .mobile-cta:hover {
+    background-color: var(--accent-primary-hover);
+  }
+
+  .mobile-lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+
+  .mobile-lang-switcher a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: color var(--transition-fast);
+  }
+
+  .mobile-lang-switcher a:hover {
+    color: var(--accent-primary);
+  }
+
+  .mobile-lang-switcher a.active {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .mobile-lang-switcher .divider {
+    color: var(--text-secondary);
+    opacity: 0.5;
+  }
+
+  /* ===== MOBILE BREAKPOINT ===== */
   @media (max-width: 768px) {
-    nav {
+    .header-inner {
+      height: 64px;
+    }
+
+    /* Hide desktop nav */
+    .desktop-nav {
       display: none;
     }
 
-    .header-inner {
-      height: 64px;
+    /* Hide desktop CTA */
+    .desktop-only {
+      display: none;
+    }
+
+    /* Show hamburger */
+    .menu-toggle {
+      display: flex;
+    }
+
+    /* Show mobile menu container */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 64px);
+      height: calc(100dvh - 64px);
+      background: var(--bg-primary, #F5EDE0);
+      z-index: 200;
+      padding: 48px 24px;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.is-open {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: menuFadeIn 0.2s ease-out forwards;
+    }
+
+    .mobile-menu.is-closing {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: menuFadeOut 0.15s ease-in forwards;
+    }
+
+    @keyframes menuFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes menuFadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
     }
   }
 </style>
