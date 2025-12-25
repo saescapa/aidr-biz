@@ -6,15 +6,52 @@ Track recent changes and current project state here. Update this file at the end
 
 ## Current State
 
-**Last Updated:** 2025-12-10
+**Last Updated:** 2025-12-25
 
-**Status:** Core pages implemented with placeholder content
+**Status:** Core pages with real content (EN/ES), resources page pending
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-25 - Content Population (EN/ES)
+
+**Work Completed:**
+- Replaced all placeholder content on 6 main pages with real book copy
+- Content derived from manuscript preface and WEBSITE-COPY-GUIDE.md
+
+**English Pages Updated:**
+- `/en/` (homepage): Hero ("AI from pilot to scale"), 3 value props (60+ cases, 5 frameworks, 1,400+ executives), author credentials, final CTA
+- `/en/book/`: Subtitle, 3-paragraph about section, 5-part TOC, 4 target audiences, full book specs (353 pages, ISBN, publisher, date)
+- `/en/authors/`: Page intro, author titles ("Strategic Advisor & Leadership Educator"), 2-paragraph bios for each author
+
+**Spanish Pages Updated:**
+- `/es/` (homepage): "De piloto a escala con IA", translated value props, credentials, CTA
+- `/es/libro/`: Full Spanish translation of book page content
+- `/es/autores/`: Full Spanish translation of author bios and intro
+
+**Files Modified:**
+- `src/pages/en/index.astro`
+- `src/pages/en/book.astro`
+- `src/pages/en/authors.astro`
+- `src/pages/es/index.astro`
+- `src/pages/es/libro.astro`
+- `src/pages/es/autores.astro`
+
+**Left as Placeholders (per user request):**
+- Resources pages (`/en/resources/`, `/es/recursos/`)
+- Author social media links (LinkedIn, Twitter, Website)
+- Book cover and author photo images
+
+**Next Steps:**
+- Add book cover images and author photos
+- Define and populate resources page content
+- Add author social media links when available
+- Implement mobile hamburger menu
+
+---
 
 ### 2025-12-10 - Core Page Implementation
 
@@ -84,7 +121,7 @@ src/
 
 ---
 
-### 2024-12-10 - Codebase Cleanup & Foundation
+### 2025-12-10 - Codebase Cleanup & Foundation
 
 **Work Completed:**
 - Removed all blog template files and sample content
@@ -135,7 +172,7 @@ src/
 
 ---
 
-### 2024-12-10 - Design System Overhaul
+### 2025-12-10 - Design System Overhaul
 
 **Work Completed:**
 - Rewrote `design_ethos.md` with language-specific color palettes
@@ -163,7 +200,7 @@ src/
 
 ---
 
-### 2024-12-10 - Documentation Refinements
+### 2025-12-10 - Documentation Refinements
 
 **Work Completed:**
 - Renamed "About" page to "Book" across all documentation
@@ -177,7 +214,7 @@ src/
 - `docs/website/header_footer.md`
 - `docs.local/todos.md`
 
-### 2024-12-10 - Initial Documentation Setup
+### 2025-12-10 - Initial Documentation Setup
 
 **Work Completed:**
 - Created project documentation structure
