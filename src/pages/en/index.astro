@@ -133,8 +133,12 @@ const lang = 'en';
   .book-cover {
     width: 300px;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    border: 1px solid color-mix(in srgb, white 20%, transparent);
+    box-shadow:
+      0 25px 50px color-mix(in srgb, var(--text-primary) 25%, transparent),
+      0 10px 20px color-mix(in srgb, var(--text-primary) 15%, transparent),
+      inset 0 1px 0 color-mix(in srgb, white 20%, transparent);
   }
 
   /* Value Section */
@@ -155,16 +159,53 @@ const lang = 'en';
   }
 
   .value-card {
-    background: var(--bg-primary);
+    /* Liquid Glass card */
+    position: relative;
     padding: 32px;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
+    background: color-mix(in srgb, var(--bg-primary) 60%, transparent);
+    backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+    -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+    border: 1px solid color-mix(in srgb, white 30%, transparent);
+    box-shadow:
+      0 4px 24px color-mix(in srgb, var(--text-primary) 10%, transparent),
+      inset 0 1px 1px color-mix(in srgb, white 50%, transparent);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, white 25%, transparent) 0%,
+      color-mix(in srgb, white 10%, transparent) 40%,
+      transparent 100%
+    );
+    pointer-events: none;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 32px color-mix(in srgb, var(--text-primary) 15%, transparent),
+      inset 0 1px 1px color-mix(in srgb, white 60%, transparent);
   }
 
   .value-icon {
+    position: relative;
+    z-index: 1;
     width: 64px;
     height: 64px;
-    background: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 85%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -172,13 +213,22 @@ const lang = 'en';
     margin: 0 auto 24px;
     color: var(--text-inverse);
     font-size: 0.875rem;
+    font-weight: 700;
+    border: 1px solid color-mix(in srgb, white 30%, transparent);
+    box-shadow:
+      0 4px 16px color-mix(in srgb, var(--accent-primary) 40%, transparent),
+      inset 0 1px 2px color-mix(in srgb, white 40%, transparent);
   }
 
   .value-card h3 {
+    position: relative;
+    z-index: 1;
     margin-bottom: 12px;
   }
 
   .value-card p {
+    position: relative;
+    z-index: 1;
     color: var(--text-secondary);
     margin: 0;
   }
@@ -201,9 +251,12 @@ const lang = 'en';
   }
 
   .author-photo-placeholder {
+    position: relative;
     width: 180px;
     height: 180px;
-    background: var(--bg-secondary);
+    background: color-mix(in srgb, var(--bg-secondary) 60%, transparent);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -211,6 +264,26 @@ const lang = 'en';
     margin: 0 auto 24px;
     color: var(--text-secondary);
     font-weight: 500;
+    border: 1px solid color-mix(in srgb, white 25%, transparent);
+    box-shadow:
+      0 8px 32px color-mix(in srgb, var(--text-primary) 12%, transparent),
+      inset 0 2px 4px color-mix(in srgb, white 40%, transparent);
+    overflow: hidden;
+  }
+
+  .author-photo-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, white 30%, transparent) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
   }
 
   .author-preview-card h3 {
@@ -259,23 +332,74 @@ const lang = 'en';
   }
 
   .btn-primary {
-    background: var(--accent-primary);
+    position: relative;
+    background: color-mix(in srgb, var(--accent-primary) 85%, transparent);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
     color: var(--text-inverse);
+    border: 1px solid color-mix(in srgb, white 25%, transparent);
+    box-shadow:
+      0 4px 16px color-mix(in srgb, var(--accent-primary) 35%, transparent),
+      inset 0 1px 2px color-mix(in srgb, white 35%, transparent);
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, white 25%, transparent) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
   }
 
   .btn-primary:hover {
-    opacity: 0.9;
+    background: color-mix(in srgb, var(--accent-primary) 95%, transparent);
+    box-shadow:
+      0 6px 24px color-mix(in srgb, var(--accent-primary) 45%, transparent),
+      inset 0 1px 2px color-mix(in srgb, white 40%, transparent);
   }
 
   .btn-secondary {
-    background: transparent;
-    border: 2px solid var(--accent-primary);
+    position: relative;
+    background: color-mix(in srgb, var(--bg-primary) 50%, transparent);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 60%, transparent);
     color: var(--accent-primary);
+    box-shadow:
+      inset 0 1px 2px color-mix(in srgb, white 20%, transparent);
+    overflow: hidden;
+  }
+
+  .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, white 15%, transparent) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
   }
 
   .btn-secondary:hover {
-    background: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 85%, transparent);
     color: var(--text-inverse);
+    border-color: color-mix(in srgb, white 25%, transparent);
+    box-shadow:
+      0 4px 16px color-mix(in srgb, var(--accent-primary) 35%, transparent),
+      inset 0 1px 2px color-mix(in srgb, white 35%, transparent);
   }
 
   .btn-ghost {

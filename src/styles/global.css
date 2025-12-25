@@ -416,6 +416,115 @@ main {
   color: var(--text-primary);
 }
 
+/* ===== Liquid Glass System ===== */
+
+.glass {
+  --glass-opacity: 55%;
+  --glass-blur: 40px;
+  --glass-shine: 35%;
+  --glass-border: 30%;
+
+  position: relative;
+  background: color-mix(in srgb, var(--bg-primary) var(--glass-opacity), transparent);
+  backdrop-filter: blur(var(--glass-blur)) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(200%) brightness(1.05);
+  border: 1px solid color-mix(in srgb, white var(--glass-border), transparent);
+  box-shadow:
+    0 4px 24px color-mix(in srgb, var(--text-primary) 10%, transparent),
+    0 1px 8px color-mix(in srgb, var(--text-primary) 8%, transparent),
+    inset 0 1px 1px color-mix(in srgb, white 50%, transparent),
+    inset 0 -1px 1px color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white var(--glass-shine), transparent) 0%,
+    color-mix(in srgb, white 15%, transparent) 30%,
+    color-mix(in srgb, white 5%, transparent) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Glass variants */
+.glass-subtle {
+  --glass-opacity: 70%;
+  --glass-blur: 24px;
+  --glass-shine: 20%;
+  --glass-border: 20%;
+}
+
+.glass-intense {
+  --glass-opacity: 40%;
+  --glass-blur: 50px;
+  --glass-shine: 45%;
+  --glass-border: 40%;
+}
+
+/* Glass on secondary bg */
+.glass-secondary {
+  background: color-mix(in srgb, var(--bg-secondary) var(--glass-opacity), transparent);
+}
+
+/* Glass card - adds hover effect */
+.glass-card {
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 32px color-mix(in srgb, var(--text-primary) 15%, transparent),
+    0 2px 12px color-mix(in srgb, var(--text-primary) 10%, transparent),
+    inset 0 1px 1px color-mix(in srgb, white 60%, transparent),
+    inset 0 -1px 1px color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+
+/* Glass button */
+.btn-glass {
+  position: relative;
+  background: color-mix(in srgb, var(--accent-primary) 80%, transparent);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid color-mix(in srgb, white 30%, transparent);
+  box-shadow:
+    0 2px 12px color-mix(in srgb, var(--accent-primary) 30%, transparent),
+    inset 0 1px 1px color-mix(in srgb, white 40%, transparent);
+  overflow: hidden;
+}
+
+.btn-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 30%, transparent) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.btn-glass:hover {
+  background: color-mix(in srgb, var(--accent-primary) 90%, transparent);
+  box-shadow:
+    0 4px 20px color-mix(in srgb, var(--accent-primary) 40%, transparent),
+    inset 0 1px 1px color-mix(in srgb, white 50%, transparent);
+}
+
 /* ===== Reduced Motion ===== */
 
 @media (prefers-reduced-motion: reduce) {

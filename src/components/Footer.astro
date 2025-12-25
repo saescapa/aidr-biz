@@ -55,12 +55,45 @@ const bookTitle = lang === 'es' ? 'La IA en los Negocios' : 'The AI-driven Busin
 </footer>
 
 <style>
+  /* ===== Footer - Liquid Glass ===== */
   footer {
-    background: var(--bg-secondary, #F5EDE0);
+    position: relative;
     margin-top: auto;
+
+    /* Liquid Glass base */
+    background: color-mix(in srgb, var(--bg-secondary, #F5EDE0) 60%, transparent);
+    backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+    -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+
+    /* Top border glow */
+    border-top: 1px solid color-mix(in srgb, white 25%, transparent);
+
+    /* Depth */
+    box-shadow:
+      0 -4px 24px color-mix(in srgb, var(--text-primary) 8%, transparent),
+      inset 0 1px 1px color-mix(in srgb, white 40%, transparent);
+  }
+
+  /* Top shine gradient */
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, white 20%, transparent) 0%,
+      color-mix(in srgb, white 8%, transparent) 40%,
+      transparent 100%
+    );
+    pointer-events: none;
   }
 
   .footer-inner {
+    position: relative;
+    z-index: 1;
     max-width: 1280px;
     margin: 0 auto;
     padding: 48px 24px 24px;
