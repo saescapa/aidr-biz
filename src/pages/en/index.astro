@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { SITE_TITLE_EN, SITE_DESCRIPTION_EN, PURCHASE_LINKS, AUTHORS, ROUTES } from '../../consts';
+import { SITE_DESCRIPTION_EN, PURCHASE_LINKS, AUTHORS, ROUTES } from '../../consts';
 import coverEN from '../../assets/cover-en.jpg';
 
 const lang = 'en';
 ---
 
-<Layout title={SITE_TITLE_EN} description={SITE_DESCRIPTION_EN} lang={lang}>
+<Layout description={SITE_DESCRIPTION_EN} lang={lang}>
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">

@@ -20,6 +20,7 @@ const { title, description, lang = 'en', image } = Astro.props;
   <head>
     <BaseHead title={title} description={description} lang={lang} image={image} />
     <ClientRouter />
+    <slot name="head" />
   </head>
   <body>
     <a href="#main" class="skip-link">

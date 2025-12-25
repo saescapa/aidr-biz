@@ -5,11 +5,39 @@ import { SITE_TITLE_ES, PURCHASE_LINKS, ROUTES } from '../../consts';
 import coverES from '../../assets/cover-es.jpg';
 
 const lang = 'es';
-const pageTitle = `El Libro | ${SITE_TITLE_ES}`;
+const pageTitle = 'El Libro';
 const pageDescription = 'Descubre cómo la IA está transformando los negocios. Detalles completos, índice y lo que aprenderás.';
 ---
 
 <Layout title={pageTitle} description={pageDescription} lang={lang}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "La IA en los Negocios",
+    "alternativeHeadline": "Liderar, competir y prosperar en la era de la inteligencia artificial",
+    "description": pageDescription,
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Jorge Calvo"
+      },
+      {
+        "@type": "Person",
+        "name": "Carlos Escapa"
+      }
+    ],
+    "isbn": "979-13-990550-2-3",
+    "numberOfPages": 353,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Libros de Cabecera"
+    },
+    "datePublished": "2025-10",
+    "inLanguage": "es",
+    "bookFormat": "https://schema.org/Paperback",
+    "url": PURCHASE_LINKS.es,
+    "image": "https://saescapa.github.io/aidr-biz/og-es.png"
+  })} />
   <!-- Breadcrumb -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <div class="container">

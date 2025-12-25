@@ -21,8 +21,11 @@ const {
   title,
   description,
   lang = 'en',
-  image = `${BASE}/og-image.jpg`,
+  image,
 } = Astro.props;
+
+// Use language-specific OG image if not explicitly provided
+const ogImage = image ?? `${BASE}/og-${lang}.png`;
 
 const siteTitle = lang === 'es' ? SITE_TITLE_ES : SITE_TITLE_EN;
 const siteDescription = lang === 'es' ? SITE_DESCRIPTION_ES : SITE_DESCRIPTION_EN;
@@ -31,7 +34,7 @@ const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 const pageDescription = description || siteDescription;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const imageURL = new URL(image, Astro.site);
+const imageURL = new URL(ogImage, Astro.site);
 
 // Alternate language URL
 const alternateLang = lang === 'es' ? 'en' : 'es';

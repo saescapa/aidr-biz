@@ -8,13 +8,57 @@ Track recent changes and current project state here. Update this file at the end
 
 **Last Updated:** 2025-12-25
 
-**Status:** Core pages with real content, book covers, mobile navigation complete (EN/ES). Spanish copy proofread. Legal pages removed.
+**Status:** Core pages with real content, book covers, mobile navigation complete (EN/ES). Spanish copy proofread. Legal pages removed. SEO setup complete (OG images, structured data, sitemap).
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-25 - SEO & Meta Tags Implementation
+
+**Work Completed:**
+- Added language-specific OpenGraph images (book covers as placeholders)
+- Implemented JSON-LD structured data for Book schema on book pages
+- Implemented JSON-LD structured data for Person schema on author pages
+- Verified sitemap generation (11 pages indexed)
+- Fixed duplicate page titles across all pages (was showing "Page | Site | Site")
+- Added head slot to Layout for per-page structured data injection
+
+**Files Added:**
+- `public/og-en.png` - English OG image (book cover placeholder)
+- `public/og-es.png` - Spanish OG image (book cover placeholder)
+
+**Files Modified:**
+- `src/components/BaseHead.astro` - Language-specific OG image selection
+- `src/layouts/Layout.astro` - Added `<slot name="head" />` for structured data
+- `src/pages/en/book.astro` - Book JSON-LD schema, fixed title
+- `src/pages/es/libro.astro` - Book JSON-LD schema, fixed title
+- `src/pages/en/authors.astro` - Authors JSON-LD schema, fixed title
+- `src/pages/es/autores.astro` - Authors JSON-LD schema, fixed title
+- `src/pages/en/index.astro` - Fixed title (removed duplication)
+- `src/pages/es/index.astro` - Fixed title (removed duplication)
+- `src/pages/en/resources.astro` - Fixed title
+- `src/pages/es/recursos.astro` - Fixed title
+- `src/pages/en/buy.astro` - Fixed title
+- `src/pages/es/comprar.astro` - Fixed title
+
+**SEO Features Now Working:**
+- OpenGraph meta tags with language-specific images
+- Twitter Card meta tags
+- hreflang tags for language alternates
+- Canonical URLs
+- Sitemap at `/sitemap-index.xml`
+- Book schema (JSON-LD) on book pages
+- Person schema (JSON-LD) on author pages
+
+**Next Steps:**
+- Add author photos
+- Define and populate resources page content
+- Performance optimization (Lighthouse audit)
+
+---
 
 ### 2025-12-25 - Spanish Copy Review & Legal Pages Removal
 
