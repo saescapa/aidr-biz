@@ -30,9 +30,6 @@ export const ROUTES = {
   authors: { en: `${BASE}/en/authors/`, es: `${BASE}/es/autores/` },
   resources: { en: `${BASE}/en/resources/`, es: `${BASE}/es/recursos/` },
   buy: { en: `${BASE}/en/buy/`, es: `${BASE}/es/comprar/` },
-  privacy: { en: `${BASE}/en/privacy/`, es: `${BASE}/es/privacidad/` },
-  cookies: { en: `${BASE}/en/cookies/`, es: `${BASE}/es/cookies/` },
-  terms: { en: `${BASE}/en/terms/`, es: `${BASE}/es/terminos/` },
 };
 
 export type RouteKey = keyof typeof ROUTES;
