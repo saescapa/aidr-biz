@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { SITE_TITLE_EN, PURCHASE_LINKS, ROUTES } from '../../consts';
+import coverEN from '../../assets/cover-en.jpg';
 
 const lang = 'en';
 const pageTitle = `The Book | ${SITE_TITLE_EN}`;
@@ -22,10 +24,12 @@ const pageDescription = 'Discover how AI is transforming business. Full details,
     <div class="container">
       <div class="book-header-content">
         <div class="book-cover">
-          <div class="book-cover-placeholder">
-            <span>Book Cover</span>
-            <span class="placeholder-note">English Edition</span>
-          </div>
+          <Image
+            src={coverEN}
+            alt="AI in Business - English Edition book cover"
+            class="book-cover-image"
+            width={280}
+          />
         </div>
         <div class="book-info">
           <h1>{SITE_TITLE_EN}</h1>
@@ -174,24 +178,11 @@ const pageDescription = 'Discover how AI is transforming business. Full details,
     align-items: start;
   }
 
-  .book-cover-placeholder {
+  .book-cover-image {
     width: 280px;
-    height: 420px;
-    background: var(--bg-secondary);
+    height: auto;
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: var(--text-secondary);
-    font-weight: 600;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  }
-
-  .placeholder-note {
-    font-size: 0.875rem;
-    font-weight: 400;
   }
 
   .book-info h1 {
@@ -388,9 +379,8 @@ const pageDescription = 'Discover how AI is transforming business. Full details,
       justify-content: center;
     }
 
-    .book-cover-placeholder {
+    .book-cover-image {
       width: 220px;
-      height: 330px;
     }
 
     .book-description,

@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { SITE_TITLE_EN, SITE_DESCRIPTION_EN, PURCHASE_LINKS, AUTHORS, ROUTES } from '../../consts';
+import coverEN from '../../assets/cover-en.jpg';
 
 const lang = 'en';
 ---
@@ -22,10 +24,12 @@ const lang = 'en';
         </div>
       </div>
       <div class="hero-image">
-        <div class="book-cover-placeholder">
-          <span>Book Cover</span>
-          <span class="placeholder-note">English Edition</span>
-        </div>
+        <Image
+          src={coverEN}
+          alt="AI in Business - English Edition book cover"
+          class="book-cover"
+          width={300}
+        />
       </div>
     </div>
   </section>
@@ -126,24 +130,11 @@ const lang = 'en';
     justify-content: center;
   }
 
-  .book-cover-placeholder {
+  .book-cover {
     width: 300px;
-    height: 450px;
-    background: var(--bg-secondary);
+    height: auto;
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: var(--text-secondary);
-    font-weight: 600;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  }
-
-  .placeholder-note {
-    font-size: 0.875rem;
-    font-weight: 400;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
 
   /* Value Section */
@@ -339,9 +330,8 @@ const lang = 'en';
       gap: 48px;
     }
 
-    .book-cover-placeholder {
+    .book-cover {
       width: 240px;
-      height: 360px;
     }
 
     .authors-grid {
