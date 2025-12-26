@@ -16,6 +16,27 @@ Track recent changes and current project state here. Update this file at the end
 
 ## Session Log
 
+### 2025-12-26 - Dead Code Cleanup
+
+**Work Completed:**
+- Removed 7 unused CSS utility classes from global.css (`.link-underline`, `.card`, `.accent-*`, `.bg-accent-*`)
+- Deleted unused `src/styles/pte.ts` file (theme exports never imported)
+- Cleaned up `src/content.config.ts` (removed TODO comments)
+- Updated documentation to reflect GitHub Pages deployment complete
+
+**Files Deleted:**
+- `src/styles/pte.ts`
+
+**Files Modified:**
+- `src/styles/global.css` - Removed ~65 lines of unused CSS
+- `src/content.config.ts` - Removed stub comments
+
+**Notes:**
+- Placeholder links (`#`) in resources/footer/authors pages left as-is per user decision
+- Build verified successful after cleanup
+
+---
+
 ### 2025-12-26 - Author Photos & Buy Page Covers
 
 **Work Completed:**
@@ -39,7 +60,7 @@ Track recent changes and current project state here. Update this file at the end
 
 **Next Steps:**
 - Performance optimization (Lighthouse audit)
-- GitHub Pages deployment
+- Define resources page content (when ready)
 
 ---
 
