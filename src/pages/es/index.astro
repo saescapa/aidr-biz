@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { SITE_DESCRIPTION_ES, PURCHASE_LINKS, AUTHORS, ROUTES } from '../../consts';
+import { SITE_DESCRIPTION_ES, PURCHASE_LINKS, ROUTES } from '../../consts';
 import coverES from '../../assets/cover-es.jpg';
 
 const lang = 'es';
@@ -12,8 +12,8 @@ const lang = 'es';
   <section class="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <h1 class="display">De piloto a escala con IA</h1>
-        <p class="hero-subtitle">Una guía práctica para transformar tu empresa con inteligencia artificial</p>
+        <h1 class="display">IA de Piloto a Escala</h1>
+        <p class="hero-subtitle">Transforma tu empresa con inteligencia artificial</p>
         <div class="hero-ctas">
           <a href={PURCHASE_LINKS.es} class="btn btn-primary" target="_blank" rel="noopener">
             Comprar Ahora
@@ -42,12 +42,12 @@ const lang = 'es';
         <div class="value-card">
           <div class="value-icon">60+</div>
           <h3>Casos reales</h3>
-          <p>De Amazon a MYbank, descubre cómo empresas líderes logran mejoras del 650% con integración estratégica de IA.</p>
+          <p>De Adidas a Zilliant, descubre cómo empresas líderes logran crecer hasta un 650% con IA.</p>
         </div>
         <div class="value-card">
           <div class="value-icon">5</div>
           <h3>Frameworks probados</h3>
-          <p>Herramientas propias como el AI Moat, MELDS+ y el diagnóstico AIM-DDI, desarrolladas desde la experiencia.</p>
+          <p>Herramientas propias como MELDS+ y el diagnóstico AIM-DDI, desarrolladas desde la experiencia.</p>
         </div>
         <div class="value-card">
           <div class="value-icon">1.400+</div>
@@ -63,15 +63,20 @@ const lang = 'es';
     <div class="container">
       <h2 class="section-heading">Conoce a los Autores</h2>
       <div class="authors-grid">
-        {AUTHORS.map((author) => (
+        <div class="author-preview-card">
+            <div class="author-photo-placeholder">
+              <span>Foto</span>
+            </div>
+            <h3>Jorge Calvo</h3>
+            <p class="author-credential">Vicedecano de GLOBIS, Asesor de Estrategia de Negocios</p>
+          </div>
           <div class="author-preview-card">
             <div class="author-photo-placeholder">
               <span>Foto</span>
             </div>
-            <h3>{author}</h3>
-            <p class="author-credential">Director, Programa IA en los Negocios en ESADE</p>
+            <h3>Carlos Escapa</h3>
+            <p class="author-credential">Autor, ex-Meta, AWS Data & AI Director de Desarrollo de Negocios</p>
           </div>
-        ))}
       </div>
       <div class="authors-cta">
         <a href={ROUTES.authors.es} class="btn btn-ghost">
@@ -87,7 +92,7 @@ const lang = 'es';
       <h2>Lidera la transformación con IA</h2>
       <p>El futuro pertenece a quienes combinan imaginación humana con inteligencia artificial. Empieza hoy.</p>
       <a href={PURCHASE_LINKS.es} class="btn btn-primary btn-large" target="_blank" rel="noopener">
-        Obtener Tu Copia
+        Obtén tu Copia
       </a>
     </div>
   </section>
