@@ -290,6 +290,14 @@ main {
   }
 }
 
+@media (max-width: 480px) {
+  .container,
+  .container-wide,
+  .container-narrow {
+    padding: 0 16px;
+  }
+}
+
 /* ===== Buttons & Interactive Elements ===== */
 
 .btn {
