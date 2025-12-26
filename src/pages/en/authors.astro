@@ -11,8 +11,8 @@ const authors = [
     name: 'Jorge Calvo',
     title: 'Strategic Advisor & Leadership Educator',
     bio: [
-      'Jorge Calvo brings decades of experience in senior executive roles at multinational technology firms. As a strategic advisor and leadership educator, he helps companies understand and apply AI pragmatically in their organizations. His dual executive-academic experience provides both breadth and depth in transforming business strategy through intelligence rather than trends.',
-      'Since 2020, Jorge has co-led the AI in Business executive program at ESADE Executive Education, where over 1,400 executives have designed their own AI transformation plans. His advisory work spans multiple sectors and regions globally, identifying common patterns, recurring mistakes, and proven success factors for AI integration.',
+      'Jorge Calvo brings decades of experience in senior executive roles at multinational technology firms. As a strategic advisor and leadership educator, he helps companies understand and apply AI pragmatically in their organisations. His dual executive-academic experience provides both breadth and depth in transforming business strategy through intelligence rather than trends.',
+      'Since 2020, Jorge has led the AI in Business executive program at ESADE Executive Education, where over 1,400 executives have designed their own AI transformation plans. His advisory work spans multiple sectors and regions globally, identifying common patterns, recurring mistakes, and proven success factors for AI integration.',
     ],
     links: {
       linkedin: '#',
@@ -25,12 +25,10 @@ const authors = [
     title: 'Strategic Advisor & Leadership Educator',
     bio: [
       'Carlos Escapa has held leadership positions in multinational technology firms and academic roles at leading business schools. This combined executive and academic experience enables him to bridge the gap between technical AI capabilities and business strategy—showing leaders how to adopt AI in service of higher purpose.',
-      'As co-director of the AI in Business program at ESADE, Carlos has contributed to training nearly 5,000 professionals through executive programs and corporate initiatives. His focus on pragmatic implementation patterns helps organizations move beyond AI pilots to company-wide adoption.',
+      'As official presenter of the "Culture of Innovation" and "Learning from Amazon" programs at AWS, Carlos has contributed to training nearly 5,000 professionals through executive programs and corporate initiatives. His focus on pragmatic implementation patterns helps organisations move beyond AI pilots to company-wide adoption.',
     ],
     links: {
       linkedin: '#',
-      twitter: '#',
-      website: '#',
     },
   },
 ];
@@ -68,7 +66,7 @@ const authors = [
   <section class="page-header">
     <div class="container">
       <h1>Meet the Authors</h1>
-      <p class="page-intro">Jorge Calvo and Carlos Escapa combine decades of senior executive experience with academic rigor. Together they lead the AI in Business program at ESADE and advise organizations worldwide on strategic AI adoption.</p>
+      <p class="page-intro">Jorge Calvo and Carlos Escapa combine decades of senior executive experience with academic rigour. Together they lead the AI in Business program at ESADE and advise organisations worldwide on strategic AI adoption.</p>
     </div>
   </section>
 
@@ -94,14 +92,18 @@ const authors = [
                 <span class="link-icon">in</span>
                 LinkedIn
               </a>
-              <a href={author.links.twitter} target="_blank" rel="noopener" aria-label={`${author.name} on Twitter`}>
-                <span class="link-icon">X</span>
-                Twitter
-              </a>
-              <a href={author.links.website} target="_blank" rel="noopener" aria-label={`${author.name}'s website`}>
-                <span class="link-icon">W</span>
-                Website
-              </a>
+              {author.links.twitter && (
+                <a href={author.links.twitter} target="_blank" rel="noopener" aria-label={`${author.name} on Twitter`}>
+                  <span class="link-icon">X</span>
+                  Twitter
+                </a>
+              )}
+              {author.links.website && (
+                <a href={author.links.website} target="_blank" rel="noopener" aria-label={`${author.name}'s website`}>
+                  <span class="link-icon">W</span>
+                  Website
+                </a>
+              )}
             </div>
           </div>
         </article>

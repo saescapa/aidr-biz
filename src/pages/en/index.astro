@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
-import { SITE_DESCRIPTION_EN, PURCHASE_LINKS, AUTHORS, ROUTES } from '../../consts';
+import { SITE_DESCRIPTION_EN, PURCHASE_LINKS, ROUTES } from '../../consts';
 import coverEN from '../../assets/cover-en.jpg';
 
 const lang = 'en';
@@ -42,12 +42,12 @@ const lang = 'en';
         <div class="value-card">
           <div class="value-icon">60+</div>
           <h3>Real-World Case Studies</h3>
-          <p>From Amazon to MYbank, see how leading companies achieve 650% performance gains with strategic AI integration.</p>
+          <p>From Adidas to Zilliant, discover how leading companies achieve up to 650% growth with AI.</p>
         </div>
         <div class="value-card">
           <div class="value-icon">5</div>
           <h3>Proven Frameworks</h3>
-          <p>Proprietary tools including the AI Moat, MELDS+, and AIM-DDI diagnostic developed from hands-on transformation experience.</p>
+          <p>Field-developed tools for digital transformation projects like MELDS+ and the AIM-DDI diagnostics.</p>
         </div>
         <div class="value-card">
           <div class="value-icon">1,400+</div>
@@ -63,15 +63,20 @@ const lang = 'en';
     <div class="container">
       <h2 class="section-heading">Meet the Authors</h2>
       <div class="authors-grid">
-        {AUTHORS.map((author) => (
+        <div class="author-preview-card">
+            <div class="author-photo-placeholder">
+              <span>Photo</span>
+            </div>
+            <h3>Jorge Calvo</h3>
+            <p class="author-credential">Vicedean, GLOBIS and Global Advisor of Business Strategy</p>
+          </div>
           <div class="author-preview-card">
             <div class="author-photo-placeholder">
               <span>Photo</span>
             </div>
-            <h3>{author}</h3>
-            <p class="author-credential">Lead, AI in Business Program at ESADE</p>
+            <h3>Carlos Escapa</h3>
+            <p class="author-credential">Author, ex-Meta, AWS Data & AI Director of Business Development</p>
           </div>
-        ))}
       </div>
       <div class="authors-cta">
         <a href={ROUTES.authors.en} class="btn btn-ghost">
@@ -85,7 +90,7 @@ const lang = 'en';
   <section class="final-cta">
     <div class="container text-center">
       <h2>Lead the AI-Driven Transformation</h2>
-      <p>The future belongs to those who combine human imagination with machine intelligence. Start today.</p>
+      <p>The future belongs to those who combine human imagination with artificial intelligence. Start today.</p>
       <a href={PURCHASE_LINKS.en} class="btn btn-primary btn-large" target="_blank" rel="noopener">
         Get Your Copy
       </a>

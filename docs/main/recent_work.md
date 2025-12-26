@@ -6,15 +6,59 @@ Track recent changes and current project state here. Update this file at the end
 
 ## Current State
 
-**Last Updated:** 2025-12-25
+**Last Updated:** 2025-12-26
 
-**Status:** Core pages with real content, book covers, mobile navigation complete (EN/ES). Spanish copy proofread. Legal pages removed. SEO setup complete (OG images, structured data, sitemap).
+**Status:** All pages with client-reviewed copy (EN/ES). Author credentials differentiated. Resources pages have real intro text. Contact info added to buy pages.
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-26 - Client Copy Review Implementation
+
+**Work Completed:**
+- Applied client copy review changes from CSV across all 10 bilingual pages
+- Updated company references: "Amazon/MYbank" → "Adidas/Zilliant"
+- Removed "AI Moat" from framework descriptions
+- Differentiated author credentials on homepages:
+  - Jorge Calvo: "Vicedean, GLOBIS and Global Advisor of Business Strategy"
+  - Carlos Escapa: "Author, ex-Meta, AWS Data & AI Director of Business Development"
+- Updated Carlos's bio: ESADE co-director → AWS program presenter
+- Changed "co-led/codirige" → "led/dirige" for Jorge
+- Applied British spelling in EN (rigour, organisations)
+- Replaced placeholder intro text on resources pages with real copy
+- Added contact email (editorial@librosdecabecera.com) to buy pages
+- Removed brackets from resource titles/descriptions
+- Removed Twitter/website links for Carlos (kept LinkedIn only)
+- Fixed various copy improvements (debería→debe, between→across, etc.)
+
+**Files Modified:**
+- `src/pages/en/index.astro` - Value props, author credentials, CTA text
+- `src/pages/es/index.astro` - Value props, author credentials, CTA text
+- `src/pages/en/book.astro` - Audience text, availability text
+- `src/pages/es/libro.astro` - Subtitle, description, audience, availability
+- `src/pages/en/authors.astro` - Bio updates, British spelling, conditional links
+- `src/pages/es/autores.astro` - Bio updates, conditional links
+- `src/pages/en/resources.astro` - Intro text, removed brackets
+- `src/pages/es/recursos.astro` - Intro text, removed brackets
+- `src/pages/en/buy.astro` - Subtitle, Spanish edition label, contact info
+- `src/pages/es/comprar.astro` - Subtitle, contact info
+
+**Key Content Changes:**
+- Headline ES: "De piloto a escala con IA" → "IA de Piloto a Escala"
+- Subtitle ES: "Liderar, competir..." → "Liderando, compitiendo..."
+- Resources intro EN: "Download the following documents free of charge."
+- Resources intro ES: "Los siguientes documentos se pueden descargar gratuitamente."
+- Contact: editorial@librosdecabecera.com for bulk orders
+
+**Next Steps:**
+- Add author photos
+- Performance optimization (Lighthouse audit)
+- GitHub Pages deployment
+
+---
 
 ### 2025-12-25 - SEO & Meta Tags Implementation
 
