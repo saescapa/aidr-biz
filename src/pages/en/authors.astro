@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { ROUTES } from '../../consts';
+import jorgePhoto from '../../assets/jorge-profile.jpg';
+import carlosPhoto from '../../assets/carlos-profile.jpg';
 
 const lang = 'en';
 const pageTitle = 'The Authors';
@@ -76,10 +79,12 @@ const authors = [
       {authors.map((author, index) => (
         <article class={`author-profile ${index % 2 === 1 ? 'reversed' : ''}`}>
           <div class="author-photo">
-            <div class="photo-placeholder">
-              <span>Photo</span>
-              <span class="photo-name">{author.name}</span>
-            </div>
+            <Image
+              src={index === 0 ? jorgePhoto : carlosPhoto}
+              alt={author.name}
+              class="author-photo-image"
+              width={280}
+            />
           </div>
           <div class="author-content">
             <h2>{author.name}</h2>
@@ -191,23 +196,11 @@ const authors = [
     order: 1;
   }
 
-  .photo-placeholder {
+  .author-photo-image {
     width: 280px;
-    height: 350px;
-    background: var(--bg-secondary);
+    height: auto;
     border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: var(--text-secondary);
-    font-weight: 500;
-  }
-
-  .photo-name {
-    font-size: 0.875rem;
-    font-weight: 400;
+    object-fit: cover;
   }
 
   .author-content h2 {
@@ -312,9 +305,8 @@ const authors = [
       justify-content: center;
     }
 
-    .photo-placeholder {
+    .author-photo-image {
       width: 220px;
-      height: 275px;
     }
 
     .author-links {

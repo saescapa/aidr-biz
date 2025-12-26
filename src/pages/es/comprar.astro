@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { SITE_TITLE_ES, PURCHASE_LINKS, ROUTES } from '../../consts';
+import coverES from '../../assets/cover-es.jpg';
+import coverEN from '../../assets/cover-en.jpg';
 
 const lang = 'es';
 const pageTitle = 'Dónde Comprar';
@@ -31,10 +34,12 @@ const pageDescription = 'Compra el libro La IA en los Negocios. Disponible en ed
       <div class="editions-grid">
         <!-- Spanish Edition -->
         <article class="edition-card">
-          <div class="book-cover-placeholder">
-            <span>Portada</span>
-            <span class="placeholder-note">Edición Española</span>
-          </div>
+          <Image
+            src={coverES}
+            alt="La IA en los Negocios - Edición en Español"
+            class="book-cover"
+            width={180}
+          />
           <div class="edition-info">
             <h2>Edición Española</h2>
             <p class="edition-title">{SITE_TITLE_ES}</p>
@@ -58,10 +63,12 @@ const pageDescription = 'Compra el libro La IA en los Negocios. Disponible en ed
 
         <!-- English Edition -->
         <article class="edition-card">
-          <div class="book-cover-placeholder">
-            <span>Book Cover</span>
-            <span class="placeholder-note">English Edition</span>
-          </div>
+          <Image
+            src={coverEN}
+            alt="The AI-driven Business - English Edition"
+            class="book-cover"
+            width={180}
+          />
           <div class="edition-info">
             <h2>English Edition</h2>
             <p class="edition-title">The AI-driven Business</p>
@@ -156,25 +163,12 @@ const pageDescription = 'Compra el libro La IA en los Negocios. Disponible en ed
     text-align: center;
   }
 
-  .book-cover-placeholder {
+  .book-cover {
     width: 180px;
-    height: 270px;
-    background: var(--bg-primary);
+    height: auto;
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: var(--text-secondary);
-    font-weight: 600;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     margin-bottom: 24px;
-  }
-
-  .placeholder-note {
-    font-size: 0.75rem;
-    font-weight: 400;
   }
 
   .edition-info {
@@ -272,9 +266,8 @@ const pageDescription = 'Compra el libro La IA en los Negocios. Disponible en ed
       padding: 24px;
     }
 
-    .book-cover-placeholder {
+    .book-cover {
       width: 150px;
-      height: 225px;
     }
 
     .info-section {
