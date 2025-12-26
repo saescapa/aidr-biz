@@ -52,13 +52,14 @@ const resources = [
       <div class="resources-grid">
         {resources.map((resource) => (
           <article class="resource-card">
-            <div class="resource-icon">
-              <span>{resource.type}</span>
-            </div>
             <h2>{resource.title}</h2>
             <p>{resource.description}</p>
             <a href={resource.downloadURL} class="btn btn-primary" download>
-              Download {resource.type}
+              <span>Download</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 12L3 7l1.4-1.4L7 8.2V1h2v7.2l2.6-2.6L13 7l-5 5z" fill="currentColor"/>
+                <path d="M13 14H3v-2H1v4h14v-4h-2v2z" fill="currentColor"/>
+              </svg>
             </a>
           </article>
         ))}
@@ -135,20 +136,6 @@ const resources = [
     flex-direction: column;
   }
 
-  .resource-icon {
-    width: 64px;
-    height: 64px;
-    background: var(--accent-primary);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    color: var(--text-inverse);
-    font-weight: 700;
-    font-size: 0.875rem;
-  }
-
   .resource-card h2 {
     font-size: 1.5rem;
     margin-bottom: 12px;
@@ -162,6 +149,18 @@ const resources = [
 
   .resource-card .btn {
     align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(58, 175, 175, 0.3);
+  }
+
+  .resource-card .btn:hover {
+    box-shadow: 0 4px 12px rgba(58, 175, 175, 0.4);
+  }
+
+  .resource-card .btn svg {
+    flex-shrink: 0;
   }
 
   /* CTA */

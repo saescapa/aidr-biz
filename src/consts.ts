@@ -2,8 +2,8 @@
 export const SITE_TITLE_EN = 'The AI-driven Business';
 export const SITE_TITLE_ES = 'La IA en los Negocios';
 
-export const SITE_DESCRIPTION_EN = 'Leading, Competing, and Thriving in the Age of Artificial Intelligence';
-export const SITE_DESCRIPTION_ES = 'Liderando, compitiendo y prosperando en la era de la inteligencia artificial';
+export const SITE_DESCRIPTION_EN = "Learn how to lead AI transformation with 60+ case studies and 5 proven frameworks from executives who've trained 1,400+ leaders.";
+export const SITE_DESCRIPTION_ES = 'Aprende a liderar la transformación con IA con más de 60 casos de estudio y 5 frameworks probados de ejecutivos que han formado a más de 1.400 líderes.';
 
 // Purchase links
 export const PURCHASE_LINKS = {
