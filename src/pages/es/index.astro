@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { SITE_DESCRIPTION_ES, PURCHASE_LINKS, ROUTES } from '../../consts';
 import coverES from '../../assets/cover-es.jpg';
+import jorgePhoto from '../../assets/jorge-profile.jpg';
+import carlosPhoto from '../../assets/carlos-profile.jpg';
 
 const lang = 'es';
 ---
@@ -64,16 +66,22 @@ const lang = 'es';
       <h2 class="section-heading">Conoce a los Autores</h2>
       <div class="authors-grid">
         <div class="author-preview-card">
-            <div class="author-photo-placeholder">
-              <span>Foto</span>
-            </div>
+            <Image
+              src={jorgePhoto}
+              alt="Jorge Calvo"
+              class="author-photo"
+              width={180}
+            />
             <h3>Jorge Calvo</h3>
             <p class="author-credential">Vicedecano de GLOBIS, Asesor de Estrategia de Negocios</p>
           </div>
           <div class="author-preview-card">
-            <div class="author-photo-placeholder">
-              <span>Foto</span>
-            </div>
+            <Image
+              src={carlosPhoto}
+              alt="Carlos Escapa"
+              class="author-photo"
+              width={180}
+            />
             <h3>Carlos Escapa</h3>
             <p class="author-credential">Autor, ex-Meta, AWS Data & AI Director de Desarrollo de Negocios</p>
           </div>
@@ -205,17 +213,12 @@ const lang = 'es';
     text-align: center;
   }
 
-  .author-photo-placeholder {
+  .author-photo {
     width: 180px;
     height: 180px;
-    background: var(--bg-secondary);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    object-fit: cover;
     margin: 0 auto 24px;
-    color: var(--text-secondary);
-    font-weight: 500;
   }
 
   .author-preview-card h3 {
@@ -344,7 +347,7 @@ const lang = 'es';
       gap: 32px;
     }
 
-    .author-photo-placeholder {
+    .author-photo {
       width: 140px;
       height: 140px;
     }

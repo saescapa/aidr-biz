@@ -8,13 +8,40 @@ Track recent changes and current project state here. Update this file at the end
 
 **Last Updated:** 2025-12-26
 
-**Status:** All pages with client-reviewed copy (EN/ES). Author credentials differentiated. Resources pages have real intro text. Contact info added to buy pages.
+**Status:** All pages complete with real content, author photos, and book covers (EN/ES). No remaining placeholder content.
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-26 - Author Photos & Buy Page Covers
+
+**Work Completed:**
+- Added author profile photos to authors pages (EN/ES)
+- Added author profile photos to homepages (EN/ES) as circular thumbnails
+- Added book cover images to buy pages (EN/ES)
+- Replaced all remaining placeholder content with real images
+- Images auto-optimized to WebP format by Astro
+
+**Assets Added:**
+- `src/assets/jorge-profile.jpg` - Jorge Calvo headshot
+- `src/assets/carlos-profile.jpg` - Carlos Escapa headshot
+
+**Files Modified:**
+- `src/pages/en/authors.astro` - Real author photos
+- `src/pages/es/autores.astro` - Real author photos
+- `src/pages/en/index.astro` - Circular author thumbnails
+- `src/pages/es/index.astro` - Circular author thumbnails
+- `src/pages/en/buy.astro` - Book cover images for both editions
+- `src/pages/es/comprar.astro` - Book cover images for both editions
+
+**Next Steps:**
+- Performance optimization (Lighthouse audit)
+- GitHub Pages deployment
+
+---
 
 ### 2025-12-26 - Client Copy Review Implementation
 
