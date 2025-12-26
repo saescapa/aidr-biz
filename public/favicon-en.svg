@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .primary { fill: #3AAFAF; }
+    .secondary { fill: #1A2E44; }
+    .letter { fill: #FFFFFF; }
+    @media (prefers-color-scheme: dark) {
+      .primary { fill: #4ECDC4; }
+      .secondary { fill: #F5F5F5; }
+      .letter { fill: #0F1419; }
+    }
+  </style>
+  <!-- A shape -->
+  <path class="primary" d="M16 4L4 28h6l2-4h8l2 4h6L16 4zm0 10l2.5 6h-5L16 14z"/>
+  <!-- i circle -->
+  <circle class="secondary" cx="25" cy="8" r="4"/>
+  <!-- i letter -->
+  <text class="letter" x="25" y="11" font-family="system-ui, sans-serif" font-size="8" font-weight="700" text-anchor="middle">i</text>
+</svg>
