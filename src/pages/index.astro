@@ -1,9 +1,37 @@
 ---
 // Root index - instant client-side redirect with language detection
+import { SITE_TITLE_EN, SITE_DESCRIPTION_EN } from '../consts';
+
+const siteURL = Astro.site?.toString().replace(/\/$/, '') || 'https://theaidrivenbusiness.com';
 ---
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon-en.svg" />
+
+  <!-- Primary Meta Tags -->
+  <title>{SITE_TITLE_EN}</title>
+  <meta name="title" content={SITE_TITLE_EN} />
+  <meta name="description" content={SITE_DESCRIPTION_EN} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={siteURL} />
+  <meta property="og:site_name" content={SITE_TITLE_EN} />
+  <meta property="og:title" content={SITE_TITLE_EN} />
+  <meta property="og:description" content={SITE_DESCRIPTION_EN} />
+  <meta property="og:image" content={`${siteURL}/og-en.png`} />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={siteURL} />
+  <meta name="twitter:title" content={SITE_TITLE_EN} />
+  <meta name="twitter:description" content={SITE_DESCRIPTION_EN} />
+  <meta name="twitter:image" content={`${siteURL}/og-en.png`} />
+
+  <!-- Instant redirect with language detection -->
   <script is:inline>
     (function() {
       var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
