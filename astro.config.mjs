@@ -6,7 +6,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://saescapa.github.io',
-	base: '/aidr-biz',
+	site: 'https://theaidrivenbusiness.com',
 	integrations: [mdx(), sitemap()],
 });
