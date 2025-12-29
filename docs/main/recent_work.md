@@ -6,15 +6,42 @@ Track recent changes and current project state here. Update this file at the end
 
 ## Current State
 
-**Last Updated:** 2025-12-26
+**Last Updated:** 2025-12-29
 
-**Status:** All pages complete with real content, author photos, and book covers (EN/ES). No remaining placeholder content.
+**Status:** Site ready for custom domain deployment. All pages complete with downloadable resources.
 
 **Current Branch:** main
 
 ---
 
 ## Session Log
+
+### 2025-12-29 - Custom Domain & Resources
+
+**Work Completed:**
+- Configured custom domain `theaidrivenbusiness.com` (astro.config.mjs, CNAME)
+- Added 6 downloadable PDF resources (EN/ES versions)
+- Updated resources pages with working PDF links
+- PDFs open in browser viewer (new tab) instead of direct download
+
+**Assets Added:**
+- `public/resources/free-chapter.pdf`
+- `public/resources/glossary-ai.pdf`
+- `public/resources/index-of-cases.pdf`
+- `public/resources/capitulo-gratis.pdf`
+- `public/resources/glosario-ia.pdf`
+- `public/resources/indice-de-casos.pdf`
+
+**Files Modified:**
+- `src/pages/en/resources.astro` - PDF links, target="_blank"
+- `src/pages/es/recursos.astro` - PDF links, target="_blank"
+
+**DNS Setup Required:**
+- Cloudflare: CNAME @ → saescapa.github.io (DNS only)
+- Cloudflare: CNAME www → saescapa.github.io (DNS only)
+- GitHub Pages: Set custom domain in repo settings
+
+---
 
 ### 2025-12-26 - Dead Code Cleanup
 

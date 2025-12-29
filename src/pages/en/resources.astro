@@ -8,22 +8,22 @@ const pageDescription = 'Free resources, downloadable content, and sample chapte
 
 const resources = [
   {
-    title: 'Sample Chapter',
+    title: 'Free Chapter',
     description: 'Download a free sample chapter to preview the book\'s style and content. Get a taste of actionable AI insights.',
     type: 'PDF',
-    downloadURL: '#',
+    downloadURL: '/resources/free-chapter.pdf',
   },
   {
     title: 'AI Glossary',
     description: 'A comprehensive glossary of AI terms every business leader should know. Keep this reference handy.',
     type: 'PDF',
-    downloadURL: '#',
+    downloadURL: '/resources/glossary-ai.pdf',
   },
   {
-    title: 'Use Cases Guide',
+    title: 'Index of Cases',
     description: 'Real-world AI implementation examples across industries. See how leading companies are using AI today.',
     type: 'PDF',
-    downloadURL: '#',
+    downloadURL: '/resources/index-of-cases.pdf',
   },
 ];
 ---
@@ -54,7 +54,7 @@ const resources = [
           <article class="resource-card">
             <h2>{resource.title}</h2>
             <p>{resource.description}</p>
-            <a href={resource.downloadURL} class="btn btn-primary" download>
+            <a href={resource.downloadURL} class="btn btn-primary" target="_blank">
               <span>Download</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M8 12L3 7l1.4-1.4L7 8.2V1h2v7.2l2.6-2.6L13 7l-5 5z" fill="currentColor"/>
