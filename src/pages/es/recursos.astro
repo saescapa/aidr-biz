@@ -8,22 +8,22 @@ const pageDescription = 'Recursos gratuitos, contenido descargable y capítulos 
 
 const resources = [
   {
-    title: 'Capítulo de Muestra',
+    title: 'Capítulo Gratis',
     description: 'Descarga un capítulo de muestra gratuito para conocer el estilo y contenido del libro. Obtén un adelanto de conocimientos prácticos sobre IA.',
     type: 'PDF',
-    downloadURL: '#',
+    downloadURL: '/resources/capitulo-gratis.pdf',
   },
   {
     title: 'Glosario de IA',
     description: 'Un glosario completo de términos de IA que todo líder empresarial debe conocer. Mantén esta referencia a mano.',
     type: 'PDF',
-    downloadURL: '#',
+    downloadURL: '/resources/glosario-ia.pdf',
   },
   {
-    title: 'Guía de Casos de Uso',
+    title: 'Índice de Casos',
     description: 'Ejemplos reales de implementación de IA en diversas industrias. Ve cómo las empresas líderes están usando la IA hoy.',
     type: 'PDF',
-    downloadURL: '#',
+    downloadURL: '/resources/indice-de-casos.pdf',
   },
 ];
 ---
@@ -54,7 +54,7 @@ const resources = [
           <article class="resource-card">
             <h2>{resource.title}</h2>
             <p>{resource.description}</p>
-            <a href={resource.downloadURL} class="btn btn-primary" download>
+            <a href={resource.downloadURL} class="btn btn-primary" target="_blank">
               <span>Descargar</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M8 12L3 7l1.4-1.4L7 8.2V1h2v7.2l2.6-2.6L13 7l-5 5z" fill="currentColor"/>
