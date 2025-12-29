@@ -1,7 +1,16 @@
 ---
-// Root index redirects to language-specific homepage
-// Default to English, could detect browser language in the future
-
-const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
-return Astro.redirect(`${BASE}/en/`);
+// Root index - instant client-side redirect with language detection
 ---
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script is:inline>
+    (function() {
+      var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      var isSpanish = lang.startsWith('es');
+      window.location.replace(isSpanish ? '/es/' : '/en/');
+    })();
+  </script>
+</head>
+<body></body>
+</html>
